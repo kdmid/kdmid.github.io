@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>hello</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="I. Kaggle 데이터 사용을 위한 사전 세팅1.1. Kaggle API 설치 Google Colab에서 Kaggle API를 불러오려면 다음 소스코드를 실행한다.   1!pip install kaggle  Requirement already satisfied: kaggle in &#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.6&#x2F;dist-packages (1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hello">
+<meta property="og:url" content="https://kdmid.github.io/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/index.html">
+<meta property="og:site_name" content="hello">
+<meta property="og:description" content="I. Kaggle 데이터 사용을 위한 사전 세팅1.1. Kaggle API 설치 Google Colab에서 Kaggle API를 불러오려면 다음 소스코드를 실행한다.   1!pip install kaggle  Requirement already satisfied: kaggle in &#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.6&#x2F;dist-packages (1.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kdmid.github.io/images/Titanic_Practice_in_Colab_with_Kaggle/output_34_0.png">
+<meta property="article:published_time" content="2020-11-04T06:26:26.000Z">
+<meta property="article:modified_time" content="2020-11-04T06:49:13.908Z">
+<meta property="article:author" content="Deukjung">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kdmid.github.io/images/Titanic_Practice_in_Colab_with_Kaggle/output_34_0.png">
+    
+
+    
+        <link rel="alternate" href="/" title="hello" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Titanic_Practice_in_Colab_with_Kaggle" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/" class="article-date">
+       <time datetime="2020-11-04T06:26:26.000Z" itemprop="datePublished">2020-11-04</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/" class="article-date">
+     <time datetime="2020-11-04T06:49:13.908Z" itemprop="dateModified">2020-11-04</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="I-Kaggle-데이터-사용을-위한-사전-세팅"><a href="#I-Kaggle-데이터-사용을-위한-사전-세팅" class="headerlink" title="I. Kaggle 데이터 사용을 위한 사전 세팅"></a>I. Kaggle 데이터 사용을 위한 사전 세팅</h1><h2 id="1-1-Kaggle-API-설치"><a href="#1-1-Kaggle-API-설치" class="headerlink" title="1.1. Kaggle API 설치"></a>1.1. Kaggle API 설치</h2><ul>
+<li><code>Google Colab</code>에서 <code>Kaggle API</code>를 불러오려면 다음 소스코드를 실행한다. </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install kaggle</span><br></pre></td></tr></table></figure>
+
+<pre><code>Requirement already satisfied: kaggle in /usr/local/lib/python3.6/dist-packages (1.5.9)
+Requirement already satisfied: six&gt;=1.10 in /usr/local/lib/python3.6/dist-packages (from kaggle) (1.15.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.6/dist-packages (from kaggle) (2020.6.20)
+Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (from kaggle) (2.23.0)
+Requirement already satisfied: python-slugify in /usr/local/lib/python3.6/dist-packages (from kaggle) (4.0.1)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.6/dist-packages (from kaggle) (4.41.1)
+Requirement already satisfied: slugify in /usr/local/lib/python3.6/dist-packages (from kaggle) (0.0.1)
+Requirement already satisfied: python-dateutil in /usr/local/lib/python3.6/dist-packages (from kaggle) (2.8.1)
+Requirement already satisfied: urllib3 in /usr/local/lib/python3.6/dist-packages (from kaggle) (1.24.3)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;kaggle) (2.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;kaggle) (3.0.4)
+Requirement already satisfied: text-unidecode&gt;=1.3 in /usr/local/lib/python3.6/dist-packages (from python-slugify-&gt;kaggle) (1.3)</code></pre>
+<h2 id="1-2-Kaggle-Token-다운로드"><a href="#1-2-Kaggle-Token-다운로드" class="headerlink" title="1.2. Kaggle Token 다운로드"></a>1.2. Kaggle Token 다운로드</h2><ul>
+<li>Kaggle에서 <code>API Token</code>을 다운로드 받는다. </li>
+<li>[Kaggle]-[My Account]-[API]-[Create New API Token]을 누르면 kaggle.json 파일이 다운로드 된다. </li>
+<li>이 파일을 바탕화면에 옮긴 뒤, 아래 코드를 실행 시킨다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> files</span><br><span class="line">uploaded = files.upload()</span><br><span class="line"><span class="keyword">for</span> fn <span class="keyword">in</span> uploaded.keys():</span><br><span class="line">  print(<span class="string">&#x27;uploaded file &quot;&#123;name&#125;&quot; with length &#123;length&#125; bytes&#x27;</span>.<span class="built_in">format</span>(</span><br><span class="line">      name=fn, length=<span class="built_in">len</span>(uploaded[fn])))</span><br><span class="line">  </span><br><span class="line"><span class="comment"># kaggle.json을 아래 폴더로 옮긴 뒤, file을 사용할 수 있도록 권한을 부여한다. </span></span><br><span class="line">!mkdir -p ~/.kaggle/ &amp;&amp; mv kaggle.json ~/.kaggle/ &amp;&amp; chmod <span class="number">600</span> ~/.kaggle/kaggle.json</span><br></pre></td></tr></table></figure>
+
+
+
+<p><input type="file" id="files-c9d17d9e-30a5-4f0a-8098-d8f062a7166e" name="files[]" multiple disabled
+   style="border:none" /><br><output id="result-c9d17d9e-30a5-4f0a-8098-d8f062a7166e"><br> Upload widget is only available when the cell has been executed in the<br> current browser session. Please rerun this cell to enable.<br> </output><br> <script src="/nbextensions/google.colab/files.js"></script> </p>
+<pre><code>Saving kaggle.json to kaggle.json
+uploaded file &quot;kaggle.json&quot; with length 67 bytes</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls <span class="number">-1</span>ha ~/.kaggle/kaggle.json</span><br></pre></td></tr></table></figure>
+
+<pre><code>/root/.kaggle/kaggle.json</code></pre>
+<ul>
+<li>에러 메시지가 없으면 성공적으로 <code>json</code> 파일이 업로드 되었다는 뜻이다. </li>
+</ul>
+<h2 id="1-3-Kaggle-데이터-불러오기"><a href="#1-3-Kaggle-데이터-불러오기" class="headerlink" title="1.3. Kaggle 데이터 불러오기"></a>1.3. Kaggle 데이터 불러오기</h2><ul>
+<li>먼저 kaggle competition list를 불러온다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!kaggle competitions <span class="built_in">list</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Warning: Looks like you&#39;re using an outdated API Version, please consider updating (server 1.5.9 / client 1.5.4)
+ref                                            deadline             category            reward  teamCount  userHasEntered  
+---------------------------------------------  -------------------  ---------------  ---------  ---------  --------------  
+contradictory-my-dear-watson                   2030-07-01 23:59:00  Getting Started     Prizes        134           False  
+gan-getting-started                            2030-07-01 23:59:00  Getting Started     Prizes        185           False  
+tpu-getting-started                            2030-06-03 23:59:00  Getting Started  Knowledge        315           False  
+digit-recognizer                               2030-01-01 00:00:00  Getting Started  Knowledge       2356           False  
+titanic                                        2030-01-01 00:00:00  Getting Started  Knowledge      18058            True  
+house-prices-advanced-regression-techniques    2030-01-01 00:00:00  Getting Started  Knowledge       4536            True  
+connectx                                       2030-01-01 00:00:00  Getting Started  Knowledge        390           False  
+nlp-getting-started                            2030-01-01 00:00:00  Getting Started  Knowledge       1184           False  
+rock-paper-scissors                            2021-02-01 23:59:00  Playground          Prizes        152           False  
+riiid-test-answer-prediction                   2021-01-07 23:59:00  Featured          $100,000       1466           False  
+nfl-big-data-bowl-2021                         2021-01-05 23:59:00  Analytics         $100,000          0           False  
+competitive-data-science-predict-future-sales  2020-12-31 23:59:00  Playground           Kudos       9343           False  
+halite-iv-playground-edition                   2020-12-31 23:59:00  Playground       Knowledge         43           False  
+predict-volcanic-eruptions-ingv-oe             2020-12-28 23:59:00  Playground            Swag        193           False  
+hashcode-drone-delivery                        2020-12-14 23:59:00  Playground       Knowledge         79           False  
+cdp-unlocking-climate-solutions                2020-12-02 23:59:00  Analytics          $91,000          0           False  
+lish-moa                                       2020-11-30 23:59:00  Research           $30,000       3395           False  
+google-football                                2020-11-30 23:59:00  Featured            $6,000        916           False  
+conways-reverse-game-of-life-2020              2020-11-30 23:59:00  Playground            Swag        131           False  
+lyft-motion-prediction-autonomous-vehicles     2020-11-25 23:59:00  Featured           $30,000        778           False  </code></pre>
+<ul>
+<li>여기에서 참여하기 원하는 대회의 데이터셋을 불러오면 된다. </li>
+<li><strong>!kaggle competitions download -c + 대회명 (위의 목록 중 찾아서 복사 붙여넣기하기)</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!kaggle competitions download -c titanic</span><br></pre></td></tr></table></figure>
+
+<pre><code>Warning: Looks like you&#39;re using an outdated API Version, please consider updating (server 1.5.9 / client 1.5.4)
+Downloading train.csv to /content
+  0% 0.00/59.8k [00:00&lt;?, ?B/s]
+100% 59.8k/59.8k [00:00&lt;00:00, 50.1MB/s]
+Downloading gender_submission.csv to /content
+  0% 0.00/3.18k [00:00&lt;?, ?B/s]
+100% 3.18k/3.18k [00:00&lt;00:00, 2.84MB/s]
+Downloading test.csv to /content
+  0% 0.00/28.0k [00:00&lt;?, ?B/s]
+100% 28.0k/28.0k [00:00&lt;00:00, 23.9MB/s]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!ls</span><br></pre></td></tr></table></figure>
+
+<pre><code>gender_submission.csv  sample_data  test.csv  train.csv</code></pre>
+<h1 id="II-데이터-확인"><a href="#II-데이터-확인" class="headerlink" title="II. 데이터 확인"></a>II. 데이터 확인</h1><h2 id="2-1-EDA에-관한-필수-패키지를-설치"><a href="#2-1-EDA에-관한-필수-패키지를-설치" class="headerlink" title="2.1. EDA에 관한 필수 패키지를 설치"></a>2.1. EDA에 관한 필수 패키지를 설치</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment">#데이터 가공, 변환(dplyr)</span></span><br><span class="line"><span class="keyword">import</span> pandas_profiling <span class="comment"># 보고서 기능 #아나콘다 할때</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment">#수치연산 &amp; 배열, 행렬</span></span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl <span class="comment">#시각화</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment">#시각화</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns <span class="comment">#시각화</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> display, HTML</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-데이터-수집"><a href="#2-2-데이터-수집" class="headerlink" title="2.2. 데이터 수집"></a>2.2. 데이터 수집</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train = pd.read_csv(<span class="string">&#x27;train.csv&#x27;</span>)</span><br><span class="line">test = pd.read_csv(<span class="string">&#x27;test.csv&#x27;</span>)</span><br><span class="line">print(<span class="string">&quot;data import is done&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>data import is done</code></pre>
+<h2 id="2-3-데이터-확인"><a href="#2-3-데이터-확인" class="headerlink" title="2.3. 데이터 확인"></a>2.3. 데이터 확인</h2><ul>
+<li><code>Kaggle</code> 데이터를 불러오면 우선 확인해야 하는 것은 데이터셋의 크기다. <ul>
+<li>변수의 갯수</li>
+<li>Numeric 변수 &amp; Categorical 변수의 개수 등을 파악해야 한다.</li>
+</ul>
+</li>
+<li>Point 1 - <code>train</code>데이터에서 굳이 훈련데이터와 테스트 데이터를 구분할 필요는 없다. <ul>
+<li>보통 <code>Kaggle</code>에서는 테스트 데이터를 주기적으로 업데이트 해준다.</li>
+</ul>
+</li>
+<li>Point 2 - 보통 <code>test</code> 데이터의 변수의 개수가 하나 더 작다. </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.shape, test.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>((891, 12), (418, 11))</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 12 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   PassengerId  891 non-null    int64  
+ 1   Survived     891 non-null    int64  
+ 2   Pclass       891 non-null    int64  
+ 3   Name         891 non-null    object 
+ 4   Sex          891 non-null    object 
+ 5   Age          714 non-null    float64
+ 6   SibSp        891 non-null    int64  
+ 7   Parch        891 non-null    int64  
+ 8   Ticket       891 non-null    object 
+ 9   Fare         891 non-null    float64
+ 10  Cabin        204 non-null    object 
+ 11  Embarked     889 non-null    object 
+dtypes: float64(2), int64(5), object(5)
+memory usage: 83.7+ KB</code></pre>
+<ul>
+<li>그 후 <code>train</code>데이터의 <code>상위 5개</code>의 데이터만 확인한다. </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display(train.head())</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<ul>
+<li>그 다음 확인해야 하는 것은 <code>Numerical</code> 변수와 <code>Categorical</code> 변수를 구분한다. <ul>
+<li>먼저 <code>numerical_features</code>를 구분하자.</li>
+<li><code>include=[np.number]</code>는 <code>Numerical</code> 변수를 알려주고,</li>
+<li><code>exclude=[np.number]</code>는 <code>Categorical</code> 변수를 알려준다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numeric_features = train.select_dtypes(include=[np.number]) <span class="comment"># 수치형 데이터</span></span><br><span class="line">print(numeric_features.columns)</span><br><span class="line">print(<span class="string">&quot;The total number of numeric features are: &quot;</span>, <span class="built_in">len</span>(numeric_features.columns))</span><br></pre></td></tr></table></figure>
+
+<pre><code>Index([&#39;PassengerId&#39;, &#39;Survived&#39;, &#39;Pclass&#39;, &#39;Age&#39;, &#39;SibSp&#39;, &#39;Parch&#39;, &#39;Fare&#39;], dtype=&#39;object&#39;)
+The total number of numeric features are:  7</code></pre>
+<ul>
+<li><code>numeric_features</code>을 제외한 나머지 변수를 추출하자.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categorical_features = train.select_dtypes(exclude=[np.number])</span><br><span class="line">print(categorical_features.columns)</span><br><span class="line">print(<span class="string">&quot;The total number of numeric features are: &quot;</span>, <span class="built_in">len</span>(categorical_features.columns))</span><br></pre></td></tr></table></figure>
+
+<pre><code>Index([&#39;Name&#39;, &#39;Sex&#39;, &#39;Ticket&#39;, &#39;Cabin&#39;, &#39;Embarked&#39;], dtype=&#39;object&#39;)
+The total number of numeric features are:  5</code></pre>
+<h1 id="III-데이터-따라하기"><a href="#III-데이터-따라하기" class="headerlink" title="III. 데이터 따라하기"></a>III. 데이터 따라하기</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/ash316/eda-to-prediction-dietanic">https://www.kaggle.com/ash316/eda-to-prediction-dietanic</a></li>
+</ul>
+<h2 id="3-1-데이터-탐색-EDA-Exploratory-Data-Analysis"><a href="#3-1-데이터-탐색-EDA-Exploratory-Data-Analysis" class="headerlink" title="3.1. 데이터 탐색 EDA(Exploratory Data Analysis)"></a>3.1. 데이터 탐색 EDA(Exploratory Data Analysis)</h2><ul>
+<li>필요한 패키지 설치</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment">#수치연산 &amp; 배열, 행렬</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment">#데이터 가공, 변환(dplyr)</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment">#시각화</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns <span class="comment">#시각화</span></span><br><span class="line">plt.style.use(<span class="string">&#x27;fivethirtyeight&#x27;</span>) <span class="comment">#시각화 스타일 설정</span></span><br><span class="line"><span class="keyword">import</span> warnings <span class="comment"># 경고 메세지 무시</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 확인</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data=pd.read_csv(<span class="string">&#x27;train.csv&#x27;</span>)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.isnull().<span class="built_in">sum</span>() <span class="comment">#결측값 확인</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>PassengerId      0
+Survived         0
+Pclass           0
+Name             0
+Sex              0
+Age            177
+SibSp            0
+Parch            0
+Ticket           0
+Fare             0
+Cabin          687
+Embarked         2
+dtype: int64</code></pre>
+<ul>
+<li>Age, Cabin, Embarked에 결측값이 존재한다.</li>
+<li>이 값을 수정할 필요가 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">18</span>,<span class="number">8</span>))</span><br><span class="line">data[<span class="string">&#x27;Survived&#x27;</span>].value_counts().plot.pie(explode=[<span class="number">0</span>,<span class="number">0.1</span>],autopct=<span class="string">&#x27;%1.1f%%&#x27;</span>,ax=ax[<span class="number">0</span>],shadow=<span class="literal">True</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Survived&#x27;</span>) <span class="comment">#왼쪽 그래프 제목 넣기</span></span><br><span class="line">ax[<span class="number">0</span>].set_ylabel(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">sns.countplot(<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Survived&#x27;</span>) <span class="comment">#오른쪽 그래프 제목 넣기</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_34_0.png" alt="png"></p>
+<ul>
+<li>전체 인원 중 38.4%만 살아남았다.</li>
+<li>데이터로부터 더 나은 통찰력을 얻고 어떤 범주의 승객들이 살아남았는지 그리고 누가 살아남지 않았는지 보기 위해 더 많은 정보를 분석해야한다.</li>
+</ul>
+<h2 id="3-2-Types-Of-Features"><a href="#3-2-Types-Of-Features" class="headerlink" title="3.2.Types Of Features"></a>3.2.Types Of Features</h2><ul>
+<li><p>범주형 피쳐(Categorical Features):  </p>
+<ul>
+<li>범주형 변수는 두 개 이상의 범주를 가진 변수이다.</li>
+<li>해당 형상의 각 값은 범주별로 분류할 수 있다. </li>
+<li>이러한 변수들에 대해 어떠한 순서도 정렬할 수 없다.</li>
+<li>데이터: Sex(남성과 여성), Embarked(S, C)</li>
+</ul>
+</li>
+<li><p>순서형 피쳐(Ordinal Features):</p>
+<ul>
+<li>순서형 변수는 범주형 값과 비슷하지만, 그 값들 사이의 차이는 우리가 상대적인 순서나 값들 사이의 정렬을 가질 수 있다는 것이다.</li>
+<li>예를 들어 높이에 높은 값, 중간 값, 짧은 값과 같은 특징이 있다면 높이는 순서형 변수다.</li>
+<li>데이터: PClass</li>
+</ul>
+</li>
+<li><p>연속형 피쳐(Continous Feature):</p>
+<ul>
+<li>피쳐 열의 두 점 또는 최소값 또는 최대값 사이에 값이 연속되는 경우</li>
+<li>데이터: Age</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-3-Analysing-The-Features"><a href="#3-3-Analysing-The-Features" class="headerlink" title="3.3. Analysing The Features"></a>3.3. Analysing The Features</h2><h3 id="Sex–-gt-Categorical-Feature"><a href="#Sex–-gt-Categorical-Feature" class="headerlink" title="Sex–&gt; Categorical Feature"></a>Sex–&gt; Categorical Feature</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.groupby([<span class="string">&#x27;Sex&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>])[<span class="string">&#x27;Survived&#x27;</span>].count() <span class="comment">#데이터 요약</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Sex     Survived
+female  0            81
+        1           233
+male    0           468
+        1           109
+Name: Survived, dtype: int64</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">18</span>,<span class="number">8</span>))</span><br><span class="line">data[[<span class="string">&#x27;Sex&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>]].groupby([<span class="string">&#x27;Sex&#x27;</span>]).mean().plot.bar(ax=ax[<span class="number">0</span>]) <span class="comment">#성별 생존자 비율</span></span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Survived vs Sex&#x27;</span>)</span><br><span class="line">sns.countplot(<span class="string">&#x27;Sex&#x27;</span>,hue=<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">1</span>]) <span class="comment">#성별 생존자, 사망자 수</span></span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Sex:Survived vs Dead&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_41_0.png" alt="png"></p>
+<ul>
+<li>배에 타고 있는 남자들의 수가 여자들의 수보다 훨씬 많다.</li>
+<li>그러나 구조된 여성의 수는 구조된 남성의 수보다 거의 두 배나 많다.</li>
+<li>배에 타고 있는 여성의 생존율은 약 75%인 반면 남성은 약 18-19%이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Pclass --&gt; Ordinal Feature</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.crosstab(data.Pclass,data.Survived,margins=<span class="literal">True</span>).style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>) <span class="comment">#좌석 등급별 생존자 수 분류</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<style  type="text/css" >
+#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col0,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col1,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col2{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col1{
+            background-color:  #cee666;
+            color:  #000000;
+        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col2{
+            background-color:  #f4fa66;
+            color:  #000000;
+        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col0{
+            background-color:  #f6fa66;
+            color:  #000000;
+        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col0{
+            background-color:  #60b066;
+            color:  #000000;
+        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col1{
+            background-color:  #dfef66;
+            color:  #000000;
+        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col2{
+            background-color:  #90c866;
+            color:  #000000;
+        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col0,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col1,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col2{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }</style><table id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Survived</th>        <th class="col_heading level0 col0" >0</th>        <th class="col_heading level0 col1" >1</th>        <th class="col_heading level0 col2" >All</th>    </tr>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+<pre><code>            &lt;tr&gt;
+                    &lt;th id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row0&quot; class=&quot;row_heading level0 row0&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col0&quot; class=&quot;data row0 col0&quot; &gt;80&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col1&quot; class=&quot;data row0 col1&quot; &gt;136&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col2&quot; class=&quot;data row0 col2&quot; &gt;216&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row1&quot; class=&quot;row_heading level0 row1&quot; &gt;2&lt;/th&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col0&quot; class=&quot;data row1 col0&quot; &gt;97&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col1&quot; class=&quot;data row1 col1&quot; &gt;87&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col2&quot; class=&quot;data row1 col2&quot; &gt;184&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row2&quot; class=&quot;row_heading level0 row2&quot; &gt;3&lt;/th&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col0&quot; class=&quot;data row2 col0&quot; &gt;372&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col1&quot; class=&quot;data row2 col1&quot; &gt;119&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col2&quot; class=&quot;data row2 col2&quot; &gt;491&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row3&quot; class=&quot;row_heading level0 row3&quot; &gt;All&lt;/th&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col0&quot; class=&quot;data row3 col0&quot; &gt;549&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col1&quot; class=&quot;data row3 col1&quot; &gt;342&lt;/td&gt;
+                    &lt;td id=&quot;T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col2&quot; class=&quot;data row3 col2&quot; &gt;891&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">18</span>,<span class="number">8</span>))</span><br><span class="line">data[<span class="string">&#x27;Pclass&#x27;</span>].value_counts().plot.bar(color=[<span class="string">&#x27;#CD7F32&#x27;</span>,<span class="string">&#x27;#FFDF00&#x27;</span>,<span class="string">&#x27;#D3D3D3&#x27;</span>],ax=ax[<span class="number">0</span>]) <span class="comment">#좌석 등급별 승객 수</span></span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Number Of Passengers By Pclass&#x27;</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_ylabel(<span class="string">&#x27;Count&#x27;</span>)</span><br><span class="line">sns.countplot(<span class="string">&#x27;Pclass&#x27;</span>,hue=<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">1</span>]) <span class="comment">#좌석 등급별 생존자, 사망자 수</span></span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Pclass:Survived vs Dead&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_45_0.png" alt="png"></p>
+<ul>
+<li><p>PClass 1의 승객이 구조 당시 높은 우선순위를 부여받았다는 것을 분명히 알 수 있다.</p>
+</li>
+<li><p>PClass 3의 탑승객 수가 훨씬 더 많았지만, 여전히 탑승객들로부터 생존하는 사람들의 수는 약 25%로 매우 낮다.</p>
+</li>
+<li><p>Pclass1의 생존율이 약 63%인 반면 Pclass2의 경우 약 48%이다.</p>
+</li>
+<li><p>Sex와 Pclass의 데이터를 합쳐 생존율을 확인해보자.</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pd.crosstab([data.Sex,data.Survived],data.Pclass,margins=<span class="literal">True</span>).style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>) <span class="comment">#성별 좌석 등급별 생존자 수 분류</span></span><br><span class="line"><span class="comment">#margins은 합계표시여부</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<style  type="text/css" >
+#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col0,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col1,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col3,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col2{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col2,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col2{
+            background-color:  #f1f866;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col0{
+            background-color:  #96cb66;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col1{
+            background-color:  #a3d166;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col3{
+            background-color:  #cfe766;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col0{
+            background-color:  #a7d366;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col1,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col3{
+            background-color:  #85c266;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col2{
+            background-color:  #6eb666;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col0{
+            background-color:  #cde666;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col1{
+            background-color:  #f0f866;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col3{
+            background-color:  #f7fb66;
+            color:  #000000;
+        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col0,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col1,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col2,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col3{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }</style><table id="T_fa704222_1e4d_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="blank" ></th>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>        <th class="col_heading level0 col3" >All</th>    </tr>    <tr>        <th class="index_name level0" >Sex</th>        <th class="index_name level1" >Survived</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+<pre><code>            &lt;tr&gt;
+                    &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level0_row0&quot; class=&quot;row_heading level0 row0&quot; rowspan=2&gt;female&lt;/th&gt;
+                    &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row0&quot; class=&quot;row_heading level1 row0&quot; &gt;0&lt;/th&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col0&quot; class=&quot;data row0 col0&quot; &gt;3&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col1&quot; class=&quot;data row0 col1&quot; &gt;6&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col2&quot; class=&quot;data row0 col2&quot; &gt;72&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col3&quot; class=&quot;data row0 col3&quot; &gt;81&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row1&quot; class=&quot;row_heading level1 row1&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col0&quot; class=&quot;data row1 col0&quot; &gt;91&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col1&quot; class=&quot;data row1 col1&quot; &gt;70&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col2&quot; class=&quot;data row1 col2&quot; &gt;72&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col3&quot; class=&quot;data row1 col3&quot; &gt;233&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level0_row2&quot; class=&quot;row_heading level0 row2&quot; rowspan=2&gt;male&lt;/th&gt;
+                    &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row2&quot; class=&quot;row_heading level1 row2&quot; &gt;0&lt;/th&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col0&quot; class=&quot;data row2 col0&quot; &gt;77&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col1&quot; class=&quot;data row2 col1&quot; &gt;91&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col2&quot; class=&quot;data row2 col2&quot; &gt;300&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col3&quot; class=&quot;data row2 col3&quot; &gt;468&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row3&quot; class=&quot;row_heading level1 row3&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col0&quot; class=&quot;data row3 col0&quot; &gt;45&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col1&quot; class=&quot;data row3 col1&quot; &gt;17&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col2&quot; class=&quot;data row3 col2&quot; &gt;47&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col3&quot; class=&quot;data row3 col3&quot; &gt;109&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level0_row4&quot; class=&quot;row_heading level0 row4&quot; &gt;All&lt;/th&gt;
+                    &lt;th id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row4&quot; class=&quot;row_heading level1 row4&quot; &gt;&lt;/th&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col0&quot; class=&quot;data row4 col0&quot; &gt;216&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col1&quot; class=&quot;data row4 col1&quot; &gt;184&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col2&quot; class=&quot;data row4 col2&quot; &gt;491&lt;/td&gt;
+                    &lt;td id=&quot;T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col3&quot; class=&quot;data row4 col3&quot; &gt;891&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.factorplot(<span class="string">&#x27;Pclass&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,hue=<span class="string">&#x27;Sex&#x27;</span>,data=data) <span class="comment">#성별 좌석 등급별 생존률 시각화</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_49_0.png" alt="png"></p>
+<ul>
+<li>범주형 값을 쉽게 분리하기 위해 FactorPlot을 사용하였다.</li>
+<li>CrossTab과 FactorPlot을 보면 여성 94명 중 3명만이 사망했기 때문에 Pclass1 여성 생존율이 약 95~96%라고 쉽게 유추할 수 있다.</li>
+<li>Pclass와 관계 없이 구조하는 동안 여성에게 구조우선권이 주어졌다는 것은 명백하다.</li>
+<li>Pclass1 출신의 남성들의 생존율 또한 매우 낮다.</li>
+</ul>
+<h3 id="Age–-gt-Continous-Feature"><a href="#Age–-gt-Continous-Feature" class="headerlink" title="Age–&gt; Continous Feature"></a>Age–&gt; Continous Feature</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;Oldest Passenger was of:&#x27;</span>,data[<span class="string">&#x27;Age&#x27;</span>].<span class="built_in">max</span>(),<span class="string">&#x27;Years&#x27;</span>) <span class="comment">#나이 최대값 표시</span></span><br><span class="line">print(<span class="string">&#x27;Youngest Passenger was of:&#x27;</span>,data[<span class="string">&#x27;Age&#x27;</span>].<span class="built_in">min</span>(),<span class="string">&#x27;Years&#x27;</span>) <span class="comment">#나이 최솟값 표시</span></span><br><span class="line">print(<span class="string">&#x27;Average Age on the ship:&#x27;</span>,data[<span class="string">&#x27;Age&#x27;</span>].mean(),<span class="string">&#x27;Years&#x27;</span>) <span class="comment">#평균 나이 표시</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Oldest Passenger was of: 80.0 Years
+Youngest Passenger was of: 0.42 Years
+Average Age on the ship: 29.69911764705882 Years</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">18</span>,<span class="number">8</span>))</span><br><span class="line">sns.violinplot(<span class="string">&quot;Pclass&quot;</span>,<span class="string">&quot;Age&quot;</span>, hue=<span class="string">&quot;Survived&quot;</span>, data=data,split=<span class="literal">True</span>,ax=ax[<span class="number">0</span>]) <span class="comment">#나이별 좌석등급별 생존자 수 비교 (x축, y축, 범례)</span></span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Pclass and Age vs Survived&#x27;</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_yticks(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">110</span>,<span class="number">10</span>))</span><br><span class="line">sns.violinplot(<span class="string">&quot;Sex&quot;</span>,<span class="string">&quot;Age&quot;</span>, hue=<span class="string">&quot;Survived&quot;</span>, data=data,split=<span class="literal">True</span>,ax=ax[<span class="number">1</span>]) <span class="comment">#나이별 성별 생존자 수 비교 (x축, y축, 범례)</span></span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Sex and Age vs Survived&#x27;</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_yticks(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">110</span>,<span class="number">10</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_53_0.png" alt="png"></p>
+<ul>
+<li><p>Pclass가 증가함에 따라 어린 승객의 수가 증가한다.</p>
+</li>
+<li><p>10세 미만 승객의 생존율은 Pclass에 관계없이 양호한 편이다.</p>
+</li>
+<li><p>Pclass1에서 20-50세의 생존률은 높고 여성은 특히 더 높다.</p>
+</li>
+<li><p>남성의 경우 나이 많을수록 생존률이 줄어든다.</p>
+</li>
+<li><p>Age 카테고리의 결측값은 177개이다.</p>
+</li>
+<li><p>이러한 결측값을 대체하기 위해 데이터 집합의 평균 연령을 할당할 수 있다.</p>
+</li>
+<li><p>하지만 우리는 너무 다른 나이에(예를 들어 4살) 평균값(29세)를 대입할 수는 없다.</p>
+</li>
+<li><p>우리는 이름에 Mr. 와 Mrs.를 통해 성별을 예측하고 각 그룹에 맞는 평균을 대입할 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Initial&#x27;</span>]=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    data[<span class="string">&#x27;Initial&#x27;</span>]=data.Name.<span class="built_in">str</span>.extract(<span class="string">&#x27;([A-Za-z]+)\.&#x27;</span>) <span class="comment">#lets extract the Salutations</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Regex를 사용하자. [A-Za-z]+).</li>
+<li>A-Z 또는 a-z 사이에 있는 문자열을 찾고, 그 뒤에 .(점)이 있는 문자열을 찾는다.</li>
+<li>그러면 이름에서 이니셜을 성공적으로 추출할 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.crosstab(data.Initial,data.Sex).T.style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>) <span class="comment">#Checking the Initials with the Sex</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<style  type="text/css" >
+#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col0,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col1,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col3,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col4,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col5,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col7,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col8,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col12,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col15,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col16,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col2,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col6,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col9,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col10,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col11,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col13,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col14{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col2,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col6,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col9,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col10,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col11,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col13,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col14,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col0,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col1,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col3,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col4,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col5,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col7,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col8,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col12,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col15,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col16{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }</style><table id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Initial</th>        <th class="col_heading level0 col0" >Capt</th>        <th class="col_heading level0 col1" >Col</th>        <th class="col_heading level0 col2" >Countess</th>        <th class="col_heading level0 col3" >Don</th>        <th class="col_heading level0 col4" >Dr</th>        <th class="col_heading level0 col5" >Jonkheer</th>        <th class="col_heading level0 col6" >Lady</th>        <th class="col_heading level0 col7" >Major</th>        <th class="col_heading level0 col8" >Master</th>        <th class="col_heading level0 col9" >Miss</th>        <th class="col_heading level0 col10" >Mlle</th>        <th class="col_heading level0 col11" >Mme</th>        <th class="col_heading level0 col12" >Mr</th>        <th class="col_heading level0 col13" >Mrs</th>        <th class="col_heading level0 col14" >Ms</th>        <th class="col_heading level0 col15" >Rev</th>        <th class="col_heading level0 col16" >Sir</th>    </tr>    <tr>        <th class="index_name level0" >Sex</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+<pre><code>            &lt;tr&gt;
+                    &lt;th id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002level0_row0&quot; class=&quot;row_heading level0 row0&quot; &gt;female&lt;/th&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col0&quot; class=&quot;data row0 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col1&quot; class=&quot;data row0 col1&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col2&quot; class=&quot;data row0 col2&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col3&quot; class=&quot;data row0 col3&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col4&quot; class=&quot;data row0 col4&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col5&quot; class=&quot;data row0 col5&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col6&quot; class=&quot;data row0 col6&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col7&quot; class=&quot;data row0 col7&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col8&quot; class=&quot;data row0 col8&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col9&quot; class=&quot;data row0 col9&quot; &gt;182&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col10&quot; class=&quot;data row0 col10&quot; &gt;2&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col11&quot; class=&quot;data row0 col11&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col12&quot; class=&quot;data row0 col12&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col13&quot; class=&quot;data row0 col13&quot; &gt;125&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col14&quot; class=&quot;data row0 col14&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col15&quot; class=&quot;data row0 col15&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col16&quot; class=&quot;data row0 col16&quot; &gt;0&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002level0_row1&quot; class=&quot;row_heading level0 row1&quot; &gt;male&lt;/th&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col0&quot; class=&quot;data row1 col0&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col1&quot; class=&quot;data row1 col1&quot; &gt;2&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col2&quot; class=&quot;data row1 col2&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col3&quot; class=&quot;data row1 col3&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col4&quot; class=&quot;data row1 col4&quot; &gt;6&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col5&quot; class=&quot;data row1 col5&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col6&quot; class=&quot;data row1 col6&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col7&quot; class=&quot;data row1 col7&quot; &gt;2&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col8&quot; class=&quot;data row1 col8&quot; &gt;40&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col9&quot; class=&quot;data row1 col9&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col10&quot; class=&quot;data row1 col10&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col11&quot; class=&quot;data row1 col11&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col12&quot; class=&quot;data row1 col12&quot; &gt;517&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col13&quot; class=&quot;data row1 col13&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col14&quot; class=&quot;data row1 col14&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col15&quot; class=&quot;data row1 col15&quot; &gt;6&lt;/td&gt;
+                    &lt;td id=&quot;T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col16&quot; class=&quot;data row1 col16&quot; &gt;1&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</code></pre>
+<ul>
+<li>Mlle나 Mme 같이 Miss를 나타내는데 철자가 틀린 단어들을 수정할 필요가 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Initial&#x27;</span>].replace([<span class="string">&#x27;Mlle&#x27;</span>,<span class="string">&#x27;Mme&#x27;</span>,<span class="string">&#x27;Ms&#x27;</span>,<span class="string">&#x27;Dr&#x27;</span>,<span class="string">&#x27;Major&#x27;</span>,<span class="string">&#x27;Lady&#x27;</span>,<span class="string">&#x27;Countess&#x27;</span>,<span class="string">&#x27;Jonkheer&#x27;</span>,<span class="string">&#x27;Col&#x27;</span>,<span class="string">&#x27;Rev&#x27;</span>,<span class="string">&#x27;Capt&#x27;</span>,<span class="string">&#x27;Sir&#x27;</span>,<span class="string">&#x27;Don&#x27;</span>],[<span class="string">&#x27;Miss&#x27;</span>,<span class="string">&#x27;Miss&#x27;</span>,<span class="string">&#x27;Miss&#x27;</span>,<span class="string">&#x27;Mr&#x27;</span>,<span class="string">&#x27;Mr&#x27;</span>,<span class="string">&#x27;Mrs&#x27;</span>,<span class="string">&#x27;Mrs&#x27;</span>,<span class="string">&#x27;Other&#x27;</span>,<span class="string">&#x27;Other&#x27;</span>,<span class="string">&#x27;Other&#x27;</span>,<span class="string">&#x27;Mr&#x27;</span>,<span class="string">&#x27;Mr&#x27;</span>,<span class="string">&#x27;Mr&#x27;</span>],inplace=<span class="literal">True</span>)</span><br><span class="line">data.groupby(<span class="string">&#x27;Initial&#x27;</span>)[<span class="string">&#x27;Age&#x27;</span>].mean() <span class="comment">#lets check the average age by Initials</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Initial
+Master     4.574167
+Miss      21.860000
+Mr        32.739609
+Mrs       35.981818
+Other     45.888889
+Name: Age, dtype: float64</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Age의 결측값을 채워보자</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Assigning the NaN Values with the Ceil values of the mean ages</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Mr&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">33</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Mrs&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">36</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Master&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">5</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Miss&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">22</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Other&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">46</span></span><br><span class="line"></span><br><span class="line">data.Age.isnull().<span class="built_in">any</span>() <span class="comment">#So no null values left finally </span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>False</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">20</span>,<span class="number">10</span>))</span><br><span class="line">data[data[<span class="string">&#x27;Survived&#x27;</span>]==<span class="number">0</span>].Age.plot.hist(ax=ax[<span class="number">0</span>],bins=<span class="number">20</span>,edgecolor=<span class="string">&#x27;black&#x27;</span>,color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Survived= 0&#x27;</span>)</span><br><span class="line">x1=<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">85</span>,<span class="number">5</span>))</span><br><span class="line">ax[<span class="number">0</span>].set_xticks(x1)</span><br><span class="line">data[data[<span class="string">&#x27;Survived&#x27;</span>]==<span class="number">1</span>].Age.plot.hist(ax=ax[<span class="number">1</span>],color=<span class="string">&#x27;green&#x27;</span>,bins=<span class="number">20</span>,edgecolor=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Survived= 1&#x27;</span>)</span><br><span class="line">x2=<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">85</span>,<span class="number">5</span>))</span><br><span class="line">ax[<span class="number">1</span>].set_xticks(x2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_63_0.png" alt="png"></p>
+<ul>
+<li>5세 미만의 아이들이 많이 생존한 것을 확인할 수 있다.</li>
+<li>나이가 가장 많은 80세 승객은 생존한 것을 확인할 수 있다.</li>
+<li>30-40 연령의 승객들의 사망자 수가 가장 큰 것을 확인할 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.factorplot(<span class="string">&#x27;Pclass&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,col=<span class="string">&#x27;Initial&#x27;</span>,data=data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_65_0.png" alt="png"></p>
+<ul>
+<li>모든 연령층에서 여성과 아동이 우선적으로 구조되었다는 것을 확인할 수 있다.</li>
+</ul>
+<h3 id="Embarked–-gt-Categorical-Value"><a href="#Embarked–-gt-Categorical-Value" class="headerlink" title="Embarked–&gt; Categorical Value"></a>Embarked–&gt; Categorical Value</h3><ul>
+<li>Embarked: 탑승 항구<ul>
+<li>C = Cherbourg</li>
+<li>Q = Queenstown</li>
+<li>S = Southampton</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.crosstab([data.Embarked,data.Pclass],[data.Sex,data.Survived],margins=<span class="literal">True</span>).style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<style  type="text/css" >
+#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col2{
+            background-color:  #fcfe66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col1{
+            background-color:  #d2e866;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col2{
+            background-color:  #f2f866;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col3{
+            background-color:  #d8ec66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col4,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col3{
+            background-color:  #e8f466;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col1,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col2,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col4,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col2,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col4{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col1,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col0{
+            background-color:  #f9fc66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col4{
+            background-color:  #fbfd66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col1{
+            background-color:  #e6f266;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col1{
+            background-color:  #f0f866;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col2{
+            background-color:  #eef666;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col4,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col0{
+            background-color:  #edf666;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col1{
+            background-color:  #fefe66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col0{
+            background-color:  #e3f166;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col2{
+            background-color:  #ecf666;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col3{
+            background-color:  #f8fc66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col4{
+            background-color:  #ebf566;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col1{
+            background-color:  #cde666;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col2{
+            background-color:  #e4f266;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col3{
+            background-color:  #bede66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col4{
+            background-color:  #dbed66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col1{
+            background-color:  #bdde66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col2{
+            background-color:  #d3e966;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col1{
+            background-color:  #dcee66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col4{
+            background-color:  #d1e866;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col0{
+            background-color:  #52a866;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col2{
+            background-color:  #81c066;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col3{
+            background-color:  #b0d866;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col4{
+            background-color:  #9acc66;
+            color:  #000000;
+        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col1,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col2,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col4{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }</style><table id="T_477571b4_1e5d_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="blank" ></th>        <th class="index_name level0" >Sex</th>        <th class="col_heading level0 col0" colspan=2>female</th>        <th class="col_heading level0 col2" colspan=2>male</th>        <th class="col_heading level0 col4" >All</th>    </tr>    <tr>        <th class="blank" ></th>        <th class="index_name level1" >Survived</th>        <th class="col_heading level1 col0" >0</th>        <th class="col_heading level1 col1" >1</th>        <th class="col_heading level1 col2" >0</th>        <th class="col_heading level1 col3" >1</th>        <th class="col_heading level1 col4" ></th>    </tr>    <tr>        <th class="index_name level0" >Embarked</th>        <th class="index_name level1" >Pclass</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+<pre><code>            &lt;tr&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row0&quot; class=&quot;row_heading level0 row0&quot; rowspan=3&gt;C&lt;/th&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row0&quot; class=&quot;row_heading level1 row0&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col0&quot; class=&quot;data row0 col0&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col1&quot; class=&quot;data row0 col1&quot; &gt;42&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col2&quot; class=&quot;data row0 col2&quot; &gt;25&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col3&quot; class=&quot;data row0 col3&quot; &gt;17&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col4&quot; class=&quot;data row0 col4&quot; &gt;85&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row1&quot; class=&quot;row_heading level1 row1&quot; &gt;2&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col0&quot; class=&quot;data row1 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col1&quot; class=&quot;data row1 col1&quot; &gt;7&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col2&quot; class=&quot;data row1 col2&quot; &gt;8&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col3&quot; class=&quot;data row1 col3&quot; &gt;2&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col4&quot; class=&quot;data row1 col4&quot; &gt;17&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row2&quot; class=&quot;row_heading level1 row2&quot; &gt;3&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col0&quot; class=&quot;data row2 col0&quot; &gt;8&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col1&quot; class=&quot;data row2 col1&quot; &gt;15&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col2&quot; class=&quot;data row2 col2&quot; &gt;33&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col3&quot; class=&quot;data row2 col3&quot; &gt;10&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col4&quot; class=&quot;data row2 col4&quot; &gt;66&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row3&quot; class=&quot;row_heading level0 row3&quot; rowspan=3&gt;Q&lt;/th&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row3&quot; class=&quot;row_heading level1 row3&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col0&quot; class=&quot;data row3 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col1&quot; class=&quot;data row3 col1&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col2&quot; class=&quot;data row3 col2&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col3&quot; class=&quot;data row3 col3&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col4&quot; class=&quot;data row3 col4&quot; &gt;2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row4&quot; class=&quot;row_heading level1 row4&quot; &gt;2&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col0&quot; class=&quot;data row4 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col1&quot; class=&quot;data row4 col1&quot; &gt;2&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col2&quot; class=&quot;data row4 col2&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col3&quot; class=&quot;data row4 col3&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col4&quot; class=&quot;data row4 col4&quot; &gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row5&quot; class=&quot;row_heading level1 row5&quot; &gt;3&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col0&quot; class=&quot;data row5 col0&quot; &gt;9&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col1&quot; class=&quot;data row5 col1&quot; &gt;24&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col2&quot; class=&quot;data row5 col2&quot; &gt;36&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col3&quot; class=&quot;data row5 col3&quot; &gt;3&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col4&quot; class=&quot;data row5 col4&quot; &gt;72&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row6&quot; class=&quot;row_heading level0 row6&quot; rowspan=3&gt;S&lt;/th&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row6&quot; class=&quot;row_heading level1 row6&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col0&quot; class=&quot;data row6 col0&quot; &gt;2&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col1&quot; class=&quot;data row6 col1&quot; &gt;46&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col2&quot; class=&quot;data row6 col2&quot; &gt;51&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col3&quot; class=&quot;data row6 col3&quot; &gt;28&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col4&quot; class=&quot;data row6 col4&quot; &gt;127&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row7&quot; class=&quot;row_heading level1 row7&quot; &gt;2&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col0&quot; class=&quot;data row7 col0&quot; &gt;6&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col1&quot; class=&quot;data row7 col1&quot; &gt;61&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col2&quot; class=&quot;data row7 col2&quot; &gt;82&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col3&quot; class=&quot;data row7 col3&quot; &gt;15&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col4&quot; class=&quot;data row7 col4&quot; &gt;164&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                            &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row8&quot; class=&quot;row_heading level1 row8&quot; &gt;3&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col0&quot; class=&quot;data row8 col0&quot; &gt;55&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col1&quot; class=&quot;data row8 col1&quot; &gt;33&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col2&quot; class=&quot;data row8 col2&quot; &gt;231&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col3&quot; class=&quot;data row8 col3&quot; &gt;34&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col4&quot; class=&quot;data row8 col4&quot; &gt;353&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row9&quot; class=&quot;row_heading level0 row9&quot; &gt;All&lt;/th&gt;
+                    &lt;th id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row9&quot; class=&quot;row_heading level1 row9&quot; &gt;&lt;/th&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col0&quot; class=&quot;data row9 col0&quot; &gt;81&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col1&quot; class=&quot;data row9 col1&quot; &gt;231&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col2&quot; class=&quot;data row9 col2&quot; &gt;468&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col3&quot; class=&quot;data row9 col3&quot; &gt;109&lt;/td&gt;
+                    &lt;td id=&quot;T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col4&quot; class=&quot;data row9 col4&quot; &gt;889&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</code></pre>
+<ul>
+<li>항구별 생존률</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sns.factorplot(<span class="string">&#x27;Embarked&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data)</span><br><span class="line">fig=plt.gcf()</span><br><span class="line">fig.set_size_inches(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_71_0.png" alt="png"></p>
+<ul>
+<li>항구 C에서 생존률이 0.55로 가장 높고, 항구 S에서 가장 낮다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">2</span>,<span class="number">2</span>,figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line">sns.countplot(<span class="string">&#x27;Embarked&#x27;</span>,data=data,ax=ax[<span class="number">0</span>,<span class="number">0</span>]) <span class="comment">#항구별 승객 수</span></span><br><span class="line">ax[<span class="number">0</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;No. Of Passengers Boarded&#x27;</span>)</span><br><span class="line">sns.countplot(<span class="string">&#x27;Embarked&#x27;</span>,hue=<span class="string">&#x27;Sex&#x27;</span>,data=data,ax=ax[<span class="number">0</span>,<span class="number">1</span>]) <span class="comment">#항구별 성별 승객 수</span></span><br><span class="line">ax[<span class="number">0</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;Male-Female Split for Embarked&#x27;</span>)</span><br><span class="line">sns.countplot(<span class="string">&#x27;Embarked&#x27;</span>,hue=<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">1</span>,<span class="number">0</span>]) <span class="comment">#항구별 생존자, 사망자 수</span></span><br><span class="line">ax[<span class="number">1</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;Embarked vs Survived&#x27;</span>)</span><br><span class="line">sns.countplot(<span class="string">&#x27;Embarked&#x27;</span>,hue=<span class="string">&#x27;Pclass&#x27;</span>,data=data,ax=ax[<span class="number">1</span>,<span class="number">1</span>]) <span class="comment">#항구별 등급별 승객 수</span></span><br><span class="line">ax[<span class="number">1</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;Embarked vs Pclass&#x27;</span>)</span><br><span class="line">plt.subplots_adjust(wspace=<span class="number">0.2</span>,hspace=<span class="number">0.5</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_73_0.png" alt="png"></p>
+<ul>
+<li>승객이 가장 많이 탄 항구는 S이며, Pclass3 의 승객이 많은 비중을 차지한다.</li>
+<li>항구 C에서 승선한 승객들의 생존률이 높다. 그 이유는 Pclass1과 2 등급의 비중이 높아 구조가 잘 이루어진 것으로 보인다.</li>
+<li>항구 S의 생존률이 낮은 이유는 Pclass3의 승객들이 많기 때문으로 보여진다. Pclass3의 승객들은 약 81% 정도가 생존하지 못하였다.</li>
+<li>항구 Q에서 승선한 승객들의 약 95%는 Pclass3 등급의 승객들이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.factorplot(<span class="string">&#x27;Pclass&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,hue=<span class="string">&#x27;Sex&#x27;</span>,col=<span class="string">&#x27;Embarked&#x27;</span>,data=data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_75_0.png" alt="png"></p>
+<ul>
+<li><p>Pclass1 과 Pclass2 여성들의 생존률은 거의 1에 가깝다.</p>
+</li>
+<li><p>항구 S의 승객들은 남녀 모두 생존률이 매우 낮다.</p>
+</li>
+<li><p>항구 Q의 남자 승객들은 Pclass 상관없이 생존률이 매우 낮다.</p>
+</li>
+<li><p>Embarked의 결측값(NaN) 채우기</p>
+<ul>
+<li>항구 S의 승객들이 가장 많으므로 결측값(NaN)을 S로 대체하도록 하자.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Embarked&#x27;</span>].fillna(<span class="string">&#x27;S&#x27;</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">data.Embarked.isnull().<span class="built_in">any</span>()<span class="comment"># Finally No NaN values</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>False</code></pre>
+<h3 id="SibSp–-gt-Discrete-Feature"><a href="#SibSp–-gt-Discrete-Feature" class="headerlink" title="SibSp–&gt; Discrete Feature"></a>SibSp–&gt; Discrete Feature</h3><ul>
+<li>이 항목은 승객들이 혼자인지 가족과 함께 승선했는지를 나타낸다.(일행이 있는지를 나타냄)<ul>
+<li>Sibling = brother, sister, stepbrother, stepsister</li>
+<li>Spouse = husband, wife</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.crosstab([data.SibSp],data.Survived).style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<style  type="text/css" >
+#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col1{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col0{
+            background-color:  #c4e266;
+            color:  #000000;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col1{
+            background-color:  #77bb66;
+            color:  #000000;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col0{
+            background-color:  #f9fc66;
+            color:  #000000;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col1{
+            background-color:  #f0f866;
+            color:  #000000;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col1{
+            background-color:  #fbfd66;
+            color:  #000000;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col1{
+            background-color:  #fcfe66;
+            color:  #000000;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col1,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col1{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col0{
+            background-color:  #fefe66;
+            color:  #000000;
+        }</style><table id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Survived</th>        <th class="col_heading level0 col0" >0</th>        <th class="col_heading level0 col1" >1</th>    </tr>    <tr>        <th class="index_name level0" >SibSp</th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+<pre><code>            &lt;tr&gt;
+                    &lt;th id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row0&quot; class=&quot;row_heading level0 row0&quot; &gt;0&lt;/th&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col0&quot; class=&quot;data row0 col0&quot; &gt;398&lt;/td&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col1&quot; class=&quot;data row0 col1&quot; &gt;210&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row1&quot; class=&quot;row_heading level0 row1&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col0&quot; class=&quot;data row1 col0&quot; &gt;97&lt;/td&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col1&quot; class=&quot;data row1 col1&quot; &gt;112&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row2&quot; class=&quot;row_heading level0 row2&quot; &gt;2&lt;/th&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col0&quot; class=&quot;data row2 col0&quot; &gt;15&lt;/td&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col1&quot; class=&quot;data row2 col1&quot; &gt;13&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row3&quot; class=&quot;row_heading level0 row3&quot; &gt;3&lt;/th&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col0&quot; class=&quot;data row3 col0&quot; &gt;12&lt;/td&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col1&quot; class=&quot;data row3 col1&quot; &gt;4&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row4&quot; class=&quot;row_heading level0 row4&quot; &gt;4&lt;/th&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col0&quot; class=&quot;data row4 col0&quot; &gt;15&lt;/td&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col1&quot; class=&quot;data row4 col1&quot; &gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row5&quot; class=&quot;row_heading level0 row5&quot; &gt;5&lt;/th&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col0&quot; class=&quot;data row5 col0&quot; &gt;5&lt;/td&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col1&quot; class=&quot;data row5 col1&quot; &gt;0&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row6&quot; class=&quot;row_heading level0 row6&quot; &gt;8&lt;/th&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col0&quot; class=&quot;data row6 col0&quot; &gt;7&lt;/td&gt;
+                    &lt;td id=&quot;T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col1&quot; class=&quot;data row6 col1&quot; &gt;0&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">20</span>,<span class="number">8</span>))</span><br><span class="line">sns.barplot(<span class="string">&#x27;SibSp&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;SibSp vs Survived&#x27;</span>)</span><br><span class="line">sns.factorplot(<span class="string">&#x27;SibSp&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;SibSp vs Survived&#x27;</span>)</span><br><span class="line">plt.close(<span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_82_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.crosstab(data.SibSp,data.Pclass).style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<style  type="text/css" >
+#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col1,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col2{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col0{
+            background-color:  #7bbd66;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col1{
+            background-color:  #8ac466;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col2{
+            background-color:  #c6e266;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col2{
+            background-color:  #f6fa66;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col1{
+            background-color:  #eef666;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col2{
+            background-color:  #f8fc66;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col2{
+            background-color:  #fafc66;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col1{
+            background-color:  #fdfe66;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col1,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col1,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col2,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col1{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col2{
+            background-color:  #fefe66;
+            color:  #000000;
+        }</style><table id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>    </tr>    <tr>        <th class="index_name level0" >SibSp</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+<pre><code>            &lt;tr&gt;
+                    &lt;th id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row0&quot; class=&quot;row_heading level0 row0&quot; &gt;0&lt;/th&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col0&quot; class=&quot;data row0 col0&quot; &gt;137&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col1&quot; class=&quot;data row0 col1&quot; &gt;120&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col2&quot; class=&quot;data row0 col2&quot; &gt;351&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row1&quot; class=&quot;row_heading level0 row1&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col0&quot; class=&quot;data row1 col0&quot; &gt;71&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col1&quot; class=&quot;data row1 col1&quot; &gt;55&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col2&quot; class=&quot;data row1 col2&quot; &gt;83&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row2&quot; class=&quot;row_heading level0 row2&quot; &gt;2&lt;/th&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col0&quot; class=&quot;data row2 col0&quot; &gt;5&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col1&quot; class=&quot;data row2 col1&quot; &gt;8&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col2&quot; class=&quot;data row2 col2&quot; &gt;15&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row3&quot; class=&quot;row_heading level0 row3&quot; &gt;3&lt;/th&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col0&quot; class=&quot;data row3 col0&quot; &gt;3&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col1&quot; class=&quot;data row3 col1&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col2&quot; class=&quot;data row3 col2&quot; &gt;12&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row4&quot; class=&quot;row_heading level0 row4&quot; &gt;4&lt;/th&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col0&quot; class=&quot;data row4 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col1&quot; class=&quot;data row4 col1&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col2&quot; class=&quot;data row4 col2&quot; &gt;18&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row5&quot; class=&quot;row_heading level0 row5&quot; &gt;5&lt;/th&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col0&quot; class=&quot;data row5 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col1&quot; class=&quot;data row5 col1&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col2&quot; class=&quot;data row5 col2&quot; &gt;5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row6&quot; class=&quot;row_heading level0 row6&quot; &gt;8&lt;/th&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col0&quot; class=&quot;data row6 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col1&quot; class=&quot;data row6 col1&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col2&quot; class=&quot;data row6 col2&quot; &gt;7&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</code></pre>
+<ul>
+<li> barplot 과 factorplot을 통해 혼자 탑승한 승객의 생존률이 34.5%라는 것을 알 수 있다.</li>
+<li>동행자 수가 증가할수록 생존률이 감소한다.</li>
+<li>5~8인의 가족 생존률은 0인데 Pclass3 등급의 고객이기 때문일 수도 있다.</li>
+</ul>
+<h3 id="Parch"><a href="#Parch" class="headerlink" title="Parch"></a>Parch</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.crosstab(data.Parch,data.Pclass).style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<style  type="text/css" >
+#T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col2{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col0{
+            background-color:  #cfe766;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col1{
+            background-color:  #c2e066;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col2{
+            background-color:  #dbed66;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col0{
+            background-color:  #dfef66;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col1{
+            background-color:  #e1f066;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col2{
+            background-color:  #e3f166;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col2{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col1{
+            background-color:  #fcfe66;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col2,#T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col2{
+            background-color:  #fefe66;
+            color:  #000000;
+        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col2{
+            background-color:  #fdfe66;
+            color:  #000000;
+        }</style><table id="T_648da07c_1e63_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>    </tr>    <tr>        <th class="index_name level0" >Parch</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+<pre><code>            &lt;tr&gt;
+                    &lt;th id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row0&quot; class=&quot;row_heading level0 row0&quot; &gt;0&lt;/th&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col0&quot; class=&quot;data row0 col0&quot; &gt;163&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col1&quot; class=&quot;data row0 col1&quot; &gt;134&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col2&quot; class=&quot;data row0 col2&quot; &gt;381&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row1&quot; class=&quot;row_heading level0 row1&quot; &gt;1&lt;/th&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col0&quot; class=&quot;data row1 col0&quot; &gt;31&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col1&quot; class=&quot;data row1 col1&quot; &gt;32&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col2&quot; class=&quot;data row1 col2&quot; &gt;55&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row2&quot; class=&quot;row_heading level0 row2&quot; &gt;2&lt;/th&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col0&quot; class=&quot;data row2 col0&quot; &gt;21&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col1&quot; class=&quot;data row2 col1&quot; &gt;16&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col2&quot; class=&quot;data row2 col2&quot; &gt;43&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row3&quot; class=&quot;row_heading level0 row3&quot; &gt;3&lt;/th&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col0&quot; class=&quot;data row3 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col1&quot; class=&quot;data row3 col1&quot; &gt;2&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col2&quot; class=&quot;data row3 col2&quot; &gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row4&quot; class=&quot;row_heading level0 row4&quot; &gt;4&lt;/th&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col0&quot; class=&quot;data row4 col0&quot; &gt;1&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col1&quot; class=&quot;data row4 col1&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col2&quot; class=&quot;data row4 col2&quot; &gt;3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row5&quot; class=&quot;row_heading level0 row5&quot; &gt;5&lt;/th&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col0&quot; class=&quot;data row5 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col1&quot; class=&quot;data row5 col1&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col2&quot; class=&quot;data row5 col2&quot; &gt;5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+                    &lt;th id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row6&quot; class=&quot;row_heading level0 row6&quot; &gt;6&lt;/th&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col0&quot; class=&quot;data row6 col0&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col1&quot; class=&quot;data row6 col1&quot; &gt;0&lt;/td&gt;
+                    &lt;td id=&quot;T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col2&quot; class=&quot;data row6 col2&quot; &gt;1&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</code></pre>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kdmid.github.io/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/" data-id="ckh31b8q700000kukcq3j64g6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Deukjung"
+        },
+        
+        "image": "https://kdmid.github.io/images/Titanic_Practice_in_Colab_with_Kaggle/output_34_0.png",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2020-11-04",
+        "dateCreated": "2020-11-04",
+        "dateModified": "2020-11-04",
+        "url": "https://kdmid.github.io/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/",
+        "description": "I. Kaggle 데이터 사용을 위한 사전 세팅1.1. Kaggle API 설치
+Google Colab에서 Kaggle API를 불러오려면 다음 소스코드를 실행한다. 
+
+1!pip install kaggle
+
+Requirement already satisfied: kaggle in /usr/local/lib/python3.6/dist-packages (1.",
+        "wordCount": 15543
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/11/02/Seaborn_with_Matplotlib_4/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Seaborn with Matplotlib (4)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/Titanic_Practice_in_Colab_with_Kaggle/output_34_0.png)" alt="" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2020-11-04T06:26:26.000Z" itemprop="datePublished">2020-11-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/02/Seaborn_with_Matplotlib_4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/72365663/97935547-48f4ec00-1dbc-11eb-915e-42b5364c47e9.png)" alt="Seaborn with Matplotlib (4)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/11/02/Seaborn_with_Matplotlib_4/" class="title">Seaborn with Matplotlib (4)</a></p>
+                            <p class="item-date"><time datetime="2020-11-02T13:35:55.612Z" itemprop="datePublished">2020-11-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/02/Seaborn_with_Matplotlib_3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/72365663/97869450-da307800-1d54-11eb-9151-3b8255cbaf69.png)" alt="Seaborn with Matplotlib (3)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/11/02/Seaborn_with_Matplotlib_3/" class="title">Seaborn with Matplotlib (3)</a></p>
+                            <p class="item-date"><time datetime="2020-11-02T12:29:11.750Z" itemprop="datePublished">2020-11-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/02/Seaborn_with_Matplotlib_2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/72365663/97837289-3e394900-1d21-11eb-9ec9-576852608d0a.png)" alt="Seaborn with Matplotlib (2)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/11/02/Seaborn_with_Matplotlib_2/" class="title">Seaborn with Matplotlib (2)</a></p>
+                            <p class="item-date"><time datetime="2020-11-02T06:27:20.705Z" itemprop="datePublished">2020-11-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/02/Seaborn_with_Matplotlib_1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/72365663/97834102-4f328c00-1d1a-11eb-8d10-2ccaed2a085e.png)" alt="Seaborn with Matplotlib (1)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/11/02/Seaborn_with_Matplotlib_1/" class="title">Seaborn with Matplotlib (1)</a></p>
+                            <p class="item-date"><time datetime="2020-11-02T05:41:57.603Z" itemprop="datePublished">2020-11-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Deukjung</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kdmid.github.io/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
