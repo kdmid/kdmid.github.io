@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kdmid.github.io/images/Titanic_Practice_in_Colab_with_Kaggle/output_34_0.png">
 <meta property="article:published_time" content="2020-11-04T06:26:26.000Z">
-<meta property="article:modified_time" content="2020-11-04T07:15:52.753Z">
+<meta property="article:modified_time" content="2020-11-05T06:28:34.036Z">
 <meta property="article:author" content="Deukjung">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kdmid.github.io/images/Titanic_Practice_in_Colab_with_Kaggle/output_34_0.png">
@@ -173,7 +173,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/" class="article-date">
-     <time datetime="2020-11-04T07:15:52.753Z" itemprop="dateModified">2020-11-04</time>
+     <time datetime="2020-11-05T06:28:34.036Z" itemprop="dateModified">2020-11-05</time>
   </a>
 </div>
 
@@ -201,17 +201,17 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install kaggle</span><br></pre></td></tr></table></figure>
 
 <pre><code>Requirement already satisfied: kaggle in /usr/local/lib/python3.6/dist-packages (1.5.9)
+Requirement already satisfied: urllib3 in /usr/local/lib/python3.6/dist-packages (from kaggle) (1.24.3)
+Requirement already satisfied: python-slugify in /usr/local/lib/python3.6/dist-packages (from kaggle) (4.0.1)
+Requirement already satisfied: python-dateutil in /usr/local/lib/python3.6/dist-packages (from kaggle) (2.8.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (from kaggle) (2.23.0)
 Requirement already satisfied: six&gt;=1.10 in /usr/local/lib/python3.6/dist-packages (from kaggle) (1.15.0)
 Requirement already satisfied: certifi in /usr/local/lib/python3.6/dist-packages (from kaggle) (2020.6.20)
-Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (from kaggle) (2.23.0)
-Requirement already satisfied: python-slugify in /usr/local/lib/python3.6/dist-packages (from kaggle) (4.0.1)
 Requirement already satisfied: tqdm in /usr/local/lib/python3.6/dist-packages (from kaggle) (4.41.1)
 Requirement already satisfied: slugify in /usr/local/lib/python3.6/dist-packages (from kaggle) (0.0.1)
-Requirement already satisfied: python-dateutil in /usr/local/lib/python3.6/dist-packages (from kaggle) (2.8.1)
-Requirement already satisfied: urllib3 in /usr/local/lib/python3.6/dist-packages (from kaggle) (1.24.3)
+Requirement already satisfied: text-unidecode&gt;=1.3 in /usr/local/lib/python3.6/dist-packages (from python-slugify-&gt;kaggle) (1.3)
 Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;kaggle) (2.10)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;kaggle) (3.0.4)
-Requirement already satisfied: text-unidecode&gt;=1.3 in /usr/local/lib/python3.6/dist-packages (from python-slugify-&gt;kaggle) (1.3)</code></pre>
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;kaggle) (3.0.4)</code></pre>
 <h2 id="1-2-Kaggle-Token-다운로드"><a href="#1-2-Kaggle-Token-다운로드" class="headerlink" title="1.2. Kaggle Token 다운로드"></a>1.2. Kaggle Token 다운로드</h2><ul>
 <li>Kaggle에서 <code>API Token</code>을 다운로드 받는다. </li>
 <li>[Kaggle]-[My Account]-[API]-[Create New API Token]을 누르면 kaggle.json 파일이 다운로드 된다. </li>
@@ -221,8 +221,8 @@ Requirement already satisfied: text-unidecode&gt;=1.3 in /usr/local/lib/python3.
 
 
 
-<p><input type="file" id="files-c9d17d9e-30a5-4f0a-8098-d8f062a7166e" name="files[]" multiple disabled
-   style="border:none" /><br><output id="result-c9d17d9e-30a5-4f0a-8098-d8f062a7166e"><br> Upload widget is only available when the cell has been executed in the<br> current browser session. Please rerun this cell to enable.<br> </output><br> <script src="/nbextensions/google.colab/files.js"></script> </p>
+<p><input type="file" id="files-46e8dc48-05e7-4b1e-b4c3-887b0ef325f9" name="files[]" multiple disabled
+   style="border:none" /><br><output id="result-46e8dc48-05e7-4b1e-b4c3-887b0ef325f9"><br> Upload widget is only available when the cell has been executed in the<br> current browser session. Please rerun this cell to enable.<br> </output><br> <script src="/nbextensions/google.colab/files.js"></script> </p>
 <pre><code>Saving kaggle.json to kaggle.json
 uploaded file &quot;kaggle.json&quot; with length 67 bytes</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls <span class="number">-1</span>ha ~/.kaggle/kaggle.json</span><br></pre></td></tr></table></figure>
@@ -241,24 +241,24 @@ ref                                            deadline             category    
 ---------------------------------------------  -------------------  ---------------  ---------  ---------  --------------  
 contradictory-my-dear-watson                   2030-07-01 23:59:00  Getting Started     Prizes        134           False  
 gan-getting-started                            2030-07-01 23:59:00  Getting Started     Prizes        185           False  
-tpu-getting-started                            2030-06-03 23:59:00  Getting Started  Knowledge        315           False  
-digit-recognizer                               2030-01-01 00:00:00  Getting Started  Knowledge       2356           False  
-titanic                                        2030-01-01 00:00:00  Getting Started  Knowledge      18058            True  
-house-prices-advanced-regression-techniques    2030-01-01 00:00:00  Getting Started  Knowledge       4536            True  
-connectx                                       2030-01-01 00:00:00  Getting Started  Knowledge        390           False  
-nlp-getting-started                            2030-01-01 00:00:00  Getting Started  Knowledge       1184           False  
-rock-paper-scissors                            2021-02-01 23:59:00  Playground          Prizes        152           False  
-riiid-test-answer-prediction                   2021-01-07 23:59:00  Featured          $100,000       1466           False  
+tpu-getting-started                            2030-06-03 23:59:00  Getting Started  Knowledge        316           False  
+digit-recognizer                               2030-01-01 00:00:00  Getting Started  Knowledge       2365           False  
+titanic                                        2030-01-01 00:00:00  Getting Started  Knowledge      18166            True  
+house-prices-advanced-regression-techniques    2030-01-01 00:00:00  Getting Started  Knowledge       4561            True  
+connectx                                       2030-01-01 00:00:00  Getting Started  Knowledge        391           False  
+nlp-getting-started                            2030-01-01 00:00:00  Getting Started  Knowledge       1190           False  
+rock-paper-scissors                            2021-02-01 23:59:00  Playground          Prizes        186           False  
+riiid-test-answer-prediction                   2021-01-07 23:59:00  Featured          $100,000       1474           False  
 nfl-big-data-bowl-2021                         2021-01-05 23:59:00  Analytics         $100,000          0           False  
-competitive-data-science-predict-future-sales  2020-12-31 23:59:00  Playground           Kudos       9343           False  
+competitive-data-science-predict-future-sales  2020-12-31 23:59:00  Playground           Kudos       9351           False  
 halite-iv-playground-edition                   2020-12-31 23:59:00  Playground       Knowledge         43           False  
-predict-volcanic-eruptions-ingv-oe             2020-12-28 23:59:00  Playground            Swag        193           False  
+predict-volcanic-eruptions-ingv-oe             2020-12-28 23:59:00  Playground            Swag        194           False  
 hashcode-drone-delivery                        2020-12-14 23:59:00  Playground       Knowledge         79           False  
 cdp-unlocking-climate-solutions                2020-12-02 23:59:00  Analytics          $91,000          0           False  
-lish-moa                                       2020-11-30 23:59:00  Research           $30,000       3395           False  
-google-football                                2020-11-30 23:59:00  Featured            $6,000        916           False  
+lish-moa                                       2020-11-30 23:59:00  Research           $30,000       3417           False  
+google-football                                2020-11-30 23:59:00  Featured            $6,000        919           False  
 conways-reverse-game-of-life-2020              2020-11-30 23:59:00  Playground            Swag        131           False  
-lyft-motion-prediction-autonomous-vehicles     2020-11-25 23:59:00  Featured           $30,000        778           False  </code></pre>
+lyft-motion-prediction-autonomous-vehicles     2020-11-25 23:59:00  Featured           $30,000        783           False  </code></pre>
 <ul>
 <li>여기에서 참여하기 원하는 대회의 데이터셋을 불러오면 된다. </li>
 <li><strong>!kaggle competitions download -c + 대회명 (위의 목록 중 찾아서 복사 붙여넣기하기)</strong></li>
@@ -266,15 +266,9 @@ lyft-motion-prediction-autonomous-vehicles     2020-11-25 23:59:00  Featured    
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!kaggle competitions download -c titanic</span><br></pre></td></tr></table></figure>
 
 <pre><code>Warning: Looks like you&#39;re using an outdated API Version, please consider updating (server 1.5.9 / client 1.5.4)
-Downloading train.csv to /content
-  0% 0.00/59.8k [00:00&lt;?, ?B/s]
-100% 59.8k/59.8k [00:00&lt;00:00, 50.1MB/s]
-Downloading gender_submission.csv to /content
-  0% 0.00/3.18k [00:00&lt;?, ?B/s]
-100% 3.18k/3.18k [00:00&lt;00:00, 2.84MB/s]
-Downloading test.csv to /content
-  0% 0.00/28.0k [00:00&lt;?, ?B/s]
-100% 28.0k/28.0k [00:00&lt;00:00, 23.9MB/s]</code></pre>
+train.csv: Skipping, found more recently modified local copy (use --force to force download)
+test.csv: Skipping, found more recently modified local copy (use --force to force download)
+gender_submission.csv: Skipping, found more recently modified local copy (use --force to force download)</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!ls</span><br></pre></td></tr></table></figure>
 
 <pre><code>gender_submission.csv  sample_data  test.csv  train.csv</code></pre>
@@ -673,57 +667,57 @@ Name: Survived, dtype: int64</code></pre>
 
 <div style = overflow:scroll;>
 <style  type="text/css" >
-#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col0,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col1,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col2{
+#T_0414f32c_1e99_11eb_94db_0242ac1c0002row0_col0,#T_0414f32c_1e99_11eb_94db_0242ac1c0002row1_col1,#T_0414f32c_1e99_11eb_94db_0242ac1c0002row1_col2{
             background-color:  #ffff66;
             color:  #000000;
-        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col1{
+        }#T_0414f32c_1e99_11eb_94db_0242ac1c0002row0_col1{
             background-color:  #cee666;
             color:  #000000;
-        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col2{
+        }#T_0414f32c_1e99_11eb_94db_0242ac1c0002row0_col2{
             background-color:  #f4fa66;
             color:  #000000;
-        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col0{
+        }#T_0414f32c_1e99_11eb_94db_0242ac1c0002row1_col0{
             background-color:  #f6fa66;
             color:  #000000;
-        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col0{
+        }#T_0414f32c_1e99_11eb_94db_0242ac1c0002row2_col0{
             background-color:  #60b066;
             color:  #000000;
-        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col1{
+        }#T_0414f32c_1e99_11eb_94db_0242ac1c0002row2_col1{
             background-color:  #dfef66;
             color:  #000000;
-        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col2{
+        }#T_0414f32c_1e99_11eb_94db_0242ac1c0002row2_col2{
             background-color:  #90c866;
             color:  #000000;
-        }#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col0,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col1,#T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col2{
+        }#T_0414f32c_1e99_11eb_94db_0242ac1c0002row3_col0,#T_0414f32c_1e99_11eb_94db_0242ac1c0002row3_col1,#T_0414f32c_1e99_11eb_94db_0242ac1c0002row3_col2{
             background-color:  #008066;
             color:  #f1f1f1;
-        }</style><table id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Survived</th>        <th class="col_heading level0 col0" >0</th>        <th class="col_heading level0 col1" >1</th>        <th class="col_heading level0 col2" >All</th>    </tr>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_0414f32c_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Survived</th>        <th class="col_heading level0 col0" >0</th>        <th class="col_heading level0 col1" >1</th>        <th class="col_heading level0 col2" >All</th>    </tr>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row0" class="row_heading level0 row0" >1</th>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col0" class="data row0 col0" >80</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col1" class="data row0 col1" >136</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row0_col2" class="data row0 col2" >216</td>
+                        <th id="T_0414f32c_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" >1</th>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >80</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row0_col1" class="data row0 col1" >136</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row0_col2" class="data row0 col2" >216</td>
             </tr>
             <tr>
-                        <th id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row1" class="row_heading level0 row1" >2</th>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col0" class="data row1 col0" >97</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col1" class="data row1 col1" >87</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row1_col2" class="data row1 col2" >184</td>
+                        <th id="T_0414f32c_1e99_11eb_94db_0242ac1c0002level0_row1" class="row_heading level0 row1" >2</th>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >97</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row1_col1" class="data row1 col1" >87</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row1_col2" class="data row1 col2" >184</td>
             </tr>
             <tr>
-                        <th id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row2" class="row_heading level0 row2" >3</th>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col0" class="data row2 col0" >372</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col1" class="data row2 col1" >119</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row2_col2" class="data row2 col2" >491</td>
+                        <th id="T_0414f32c_1e99_11eb_94db_0242ac1c0002level0_row2" class="row_heading level0 row2" >3</th>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >372</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row2_col1" class="data row2 col1" >119</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row2_col2" class="data row2 col2" >491</td>
             </tr>
             <tr>
-                        <th id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002level0_row3" class="row_heading level0 row3" >All</th>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col0" class="data row3 col0" >549</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col1" class="data row3 col1" >342</td>
-                        <td id="T_5ff566da_1e4a_11eb_8945_0242ac1c0002row3_col2" class="data row3 col2" >891</td>
+                        <th id="T_0414f32c_1e99_11eb_94db_0242ac1c0002level0_row3" class="row_heading level0 row3" >All</th>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >549</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row3_col1" class="data row3 col1" >342</td>
+                        <td id="T_0414f32c_1e99_11eb_94db_0242ac1c0002row3_col2" class="data row3 col2" >891</td>
             </tr>
     </tbody></table>
-
+</div>
 
 
 
@@ -747,83 +741,83 @@ Name: Survived, dtype: int64</code></pre>
 
 <div style = overflow:scroll;>
 <style  type="text/css" >
-#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col0,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col1,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col3,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col2{
+#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col0,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col1,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col3,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col2{
             background-color:  #ffff66;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col2,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col2{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col2,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col2{
             background-color:  #f1f866;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col0{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col0{
             background-color:  #96cb66;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col1{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col1{
             background-color:  #a3d166;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col3{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col3{
             background-color:  #cfe766;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col0{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col0{
             background-color:  #a7d366;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col1,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col3{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col1,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col3{
             background-color:  #85c266;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col2{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col2{
             background-color:  #6eb666;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col0{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col0{
             background-color:  #cde666;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col1{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col1{
             background-color:  #f0f866;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col3{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col3{
             background-color:  #f7fb66;
             color:  #000000;
-        }#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col0,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col1,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col2,#T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col3{
+        }#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col0,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col1,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col2,#T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col3{
             background-color:  #008066;
             color:  #f1f1f1;
-        }</style><table id="T_fa704222_1e4d_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="blank" ></th>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>        <th class="col_heading level0 col3" >All</th>    </tr>    <tr>        <th class="index_name level0" >Sex</th>        <th class="index_name level1" >Survived</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="blank" ></th>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>        <th class="col_heading level0 col3" >All</th>    </tr>    <tr>        <th class="index_name level0" >Sex</th>        <th class="index_name level1" >Survived</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level0_row0" class="row_heading level0 row0" rowspan=2>female</th>
-                        <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row0" class="row_heading level1 row0" >0</th>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col0" class="data row0 col0" >3</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col1" class="data row0 col1" >6</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col2" class="data row0 col2" >72</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row0_col3" class="data row0 col3" >81</td>
+                        <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" rowspan=2>female</th>
+                        <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level1_row0" class="row_heading level1 row0" >0</th>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >3</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col1" class="data row0 col1" >6</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col2" class="data row0 col2" >72</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row0_col3" class="data row0 col3" >81</td>
             </tr>
             <tr>
-                                <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row1" class="row_heading level1 row1" >1</th>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col0" class="data row1 col0" >91</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col1" class="data row1 col1" >70</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col2" class="data row1 col2" >72</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row1_col3" class="data row1 col3" >233</td>
+                                <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level1_row1" class="row_heading level1 row1" >1</th>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >91</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col1" class="data row1 col1" >70</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col2" class="data row1 col2" >72</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row1_col3" class="data row1 col3" >233</td>
             </tr>
             <tr>
-                        <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level0_row2" class="row_heading level0 row2" rowspan=2>male</th>
-                        <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row2" class="row_heading level1 row2" >0</th>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col0" class="data row2 col0" >77</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col1" class="data row2 col1" >91</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col2" class="data row2 col2" >300</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row2_col3" class="data row2 col3" >468</td>
+                        <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level0_row2" class="row_heading level0 row2" rowspan=2>male</th>
+                        <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level1_row2" class="row_heading level1 row2" >0</th>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >77</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col1" class="data row2 col1" >91</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col2" class="data row2 col2" >300</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row2_col3" class="data row2 col3" >468</td>
             </tr>
             <tr>
-                                <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row3" class="row_heading level1 row3" >1</th>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col0" class="data row3 col0" >45</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col1" class="data row3 col1" >17</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col2" class="data row3 col2" >47</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row3_col3" class="data row3 col3" >109</td>
+                                <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level1_row3" class="row_heading level1 row3" >1</th>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >45</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col1" class="data row3 col1" >17</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col2" class="data row3 col2" >47</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row3_col3" class="data row3 col3" >109</td>
             </tr>
             <tr>
-                        <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level0_row4" class="row_heading level0 row4" >All</th>
-                        <th id="T_fa704222_1e4d_11eb_8945_0242ac1c0002level1_row4" class="row_heading level1 row4" ></th>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col0" class="data row4 col0" >216</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col1" class="data row4 col1" >184</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col2" class="data row4 col2" >491</td>
-                        <td id="T_fa704222_1e4d_11eb_8945_0242ac1c0002row4_col3" class="data row4 col3" >891</td>
+                        <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level0_row4" class="row_heading level0 row4" >All</th>
+                        <th id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002level1_row4" class="row_heading level1 row4" ></th>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col0" class="data row4 col0" >216</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col1" class="data row4 col1" >184</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col2" class="data row4 col2" >491</td>
+                        <td id="T_045dbfe4_1e99_11eb_94db_0242ac1c0002row4_col3" class="data row4 col3" >891</td>
             </tr>
     </tbody></table>
-
+</div>
 
 
 
@@ -877,55 +871,55 @@ Average Age on the ship: 29.69911764705882 Years</code></pre>
 
 <div style = overflow:scroll;>
 <style  type="text/css" >
-#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col0,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col1,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col3,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col4,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col5,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col7,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col8,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col12,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col15,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col16,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col2,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col6,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col9,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col10,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col11,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col13,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col14{
+#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col0,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col1,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col3,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col4,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col5,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col7,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col8,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col12,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col15,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col16,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col2,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col6,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col9,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col10,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col11,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col13,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col14{
             background-color:  #ffff66;
             color:  #000000;
-        }#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col2,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col6,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col9,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col10,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col11,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col13,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col14,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col0,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col1,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col3,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col4,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col5,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col7,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col8,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col12,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col15,#T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col16{
+        }#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col2,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col6,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col9,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col10,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col11,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col13,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col14,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col0,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col1,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col3,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col4,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col5,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col7,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col8,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col12,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col15,#T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col16{
             background-color:  #008066;
             color:  #f1f1f1;
-        }</style><table id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Initial</th>        <th class="col_heading level0 col0" >Capt</th>        <th class="col_heading level0 col1" >Col</th>        <th class="col_heading level0 col2" >Countess</th>        <th class="col_heading level0 col3" >Don</th>        <th class="col_heading level0 col4" >Dr</th>        <th class="col_heading level0 col5" >Jonkheer</th>        <th class="col_heading level0 col6" >Lady</th>        <th class="col_heading level0 col7" >Major</th>        <th class="col_heading level0 col8" >Master</th>        <th class="col_heading level0 col9" >Miss</th>        <th class="col_heading level0 col10" >Mlle</th>        <th class="col_heading level0 col11" >Mme</th>        <th class="col_heading level0 col12" >Mr</th>        <th class="col_heading level0 col13" >Mrs</th>        <th class="col_heading level0 col14" >Ms</th>        <th class="col_heading level0 col15" >Rev</th>        <th class="col_heading level0 col16" >Sir</th>    </tr>    <tr>        <th class="index_name level0" >Sex</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_04fd3664_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Initial</th>        <th class="col_heading level0 col0" >Capt</th>        <th class="col_heading level0 col1" >Col</th>        <th class="col_heading level0 col2" >Countess</th>        <th class="col_heading level0 col3" >Don</th>        <th class="col_heading level0 col4" >Dr</th>        <th class="col_heading level0 col5" >Jonkheer</th>        <th class="col_heading level0 col6" >Lady</th>        <th class="col_heading level0 col7" >Major</th>        <th class="col_heading level0 col8" >Master</th>        <th class="col_heading level0 col9" >Miss</th>        <th class="col_heading level0 col10" >Mlle</th>        <th class="col_heading level0 col11" >Mme</th>        <th class="col_heading level0 col12" >Mr</th>        <th class="col_heading level0 col13" >Mrs</th>        <th class="col_heading level0 col14" >Ms</th>        <th class="col_heading level0 col15" >Rev</th>        <th class="col_heading level0 col16" >Sir</th>    </tr>    <tr>        <th class="index_name level0" >Sex</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002level0_row0" class="row_heading level0 row0" >female</th>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col0" class="data row0 col0" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col1" class="data row0 col1" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col2" class="data row0 col2" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col3" class="data row0 col3" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col4" class="data row0 col4" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col5" class="data row0 col5" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col6" class="data row0 col6" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col7" class="data row0 col7" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col8" class="data row0 col8" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col9" class="data row0 col9" >182</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col10" class="data row0 col10" >2</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col11" class="data row0 col11" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col12" class="data row0 col12" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col13" class="data row0 col13" >125</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col14" class="data row0 col14" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col15" class="data row0 col15" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row0_col16" class="data row0 col16" >0</td>
+                        <th id="T_04fd3664_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" >female</th>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col1" class="data row0 col1" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col2" class="data row0 col2" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col3" class="data row0 col3" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col4" class="data row0 col4" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col5" class="data row0 col5" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col6" class="data row0 col6" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col7" class="data row0 col7" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col8" class="data row0 col8" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col9" class="data row0 col9" >182</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col10" class="data row0 col10" >2</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col11" class="data row0 col11" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col12" class="data row0 col12" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col13" class="data row0 col13" >125</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col14" class="data row0 col14" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col15" class="data row0 col15" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row0_col16" class="data row0 col16" >0</td>
             </tr>
             <tr>
-                        <th id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002level0_row1" class="row_heading level0 row1" >male</th>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col0" class="data row1 col0" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col1" class="data row1 col1" >2</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col2" class="data row1 col2" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col3" class="data row1 col3" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col4" class="data row1 col4" >6</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col5" class="data row1 col5" >1</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col6" class="data row1 col6" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col7" class="data row1 col7" >2</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col8" class="data row1 col8" >40</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col9" class="data row1 col9" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col10" class="data row1 col10" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col11" class="data row1 col11" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col12" class="data row1 col12" >517</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col13" class="data row1 col13" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col14" class="data row1 col14" >0</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col15" class="data row1 col15" >6</td>
-                        <td id="T_304ca1a4_1e50_11eb_8945_0242ac1c0002row1_col16" class="data row1 col16" >1</td>
+                        <th id="T_04fd3664_1e99_11eb_94db_0242ac1c0002level0_row1" class="row_heading level0 row1" >male</th>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col1" class="data row1 col1" >2</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col2" class="data row1 col2" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col3" class="data row1 col3" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col4" class="data row1 col4" >6</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col5" class="data row1 col5" >1</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col6" class="data row1 col6" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col7" class="data row1 col7" >2</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col8" class="data row1 col8" >40</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col9" class="data row1 col9" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col10" class="data row1 col10" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col11" class="data row1 col11" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col12" class="data row1 col12" >517</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col13" class="data row1 col13" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col14" class="data row1 col14" >0</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col15" class="data row1 col15" >6</td>
+                        <td id="T_04fd3664_1e99_11eb_94db_0242ac1c0002row1_col16" class="data row1 col16" >1</td>
             </tr>
     </tbody></table>
-
+</div>
 
 
 <ul>
@@ -943,9 +937,9 @@ Mr        32.739609
 Mrs       35.981818
 Other     45.888889
 Name: Age, dtype: float64</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Age의 결측값을 채워보자</span><br></pre></td></tr></table></figure>
-
-
+<ul>
+<li>Age의 결측값을 채워보자</li>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Assigning the NaN Values with the Ceil values of the mean ages</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Mr&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">33</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Mrs&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">36</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Master&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">5</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Miss&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">22</span></span><br><span class="line">data.loc[(data.Age.isnull())&amp;(data.Initial==<span class="string">&#x27;Other&#x27;</span>),<span class="string">&#x27;Age&#x27;</span>]=<span class="number">46</span></span><br><span class="line"></span><br><span class="line">data.Age.isnull().<span class="built_in">any</span>() <span class="comment">#So no null values left finally </span></span><br></pre></td></tr></table></figure>
 
 
@@ -982,183 +976,183 @@ Name: Age, dtype: float64</code></pre>
 
 <div style = overflow:scroll;>
 <style  type="text/css" >
-#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col2{
+#T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col0,#T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col2{
             background-color:  #fcfe66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col1{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col1{
             background-color:  #d2e866;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col2{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col2{
             background-color:  #f2f866;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col3{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col3{
             background-color:  #d8ec66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col4,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col3{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col4,#T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col3{
             background-color:  #e8f466;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col1,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col2,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col4,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col2,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col4{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col0,#T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col0,#T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col1,#T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col2,#T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col3,#T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col4,#T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col0,#T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col2,#T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col3,#T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col4{
             background-color:  #ffff66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col1,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col0{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col1,#T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col0{
             background-color:  #f9fc66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col4{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col3,#T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col4{
             background-color:  #fbfd66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col1{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col0,#T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col1{
             background-color:  #e6f266;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col1{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col1{
             background-color:  #f0f866;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col2{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col2{
             background-color:  #eef666;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col4,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col0{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col4,#T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col0{
             background-color:  #edf666;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col1{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col1{
             background-color:  #fefe66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col0{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col0{
             background-color:  #e3f166;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col2{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col2{
             background-color:  #ecf666;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col3{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col3{
             background-color:  #f8fc66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col4{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col4{
             background-color:  #ebf566;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col1{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col1{
             background-color:  #cde666;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col2{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col2{
             background-color:  #e4f266;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col3{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col3{
             background-color:  #bede66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col4{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col4{
             background-color:  #dbed66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col1{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col1{
             background-color:  #bdde66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col2{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col2{
             background-color:  #d3e966;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col1{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col3,#T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col1{
             background-color:  #dcee66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col4{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col4{
             background-color:  #d1e866;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col0{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col0{
             background-color:  #52a866;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col2{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col2{
             background-color:  #81c066;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col3{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col3{
             background-color:  #b0d866;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col4{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col4{
             background-color:  #9acc66;
             color:  #000000;
-        }#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col0,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col1,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col2,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col3,#T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col4{
+        }#T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col0,#T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col1,#T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col2,#T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col3,#T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col4{
             background-color:  #008066;
             color:  #f1f1f1;
-        }</style><table id="T_477571b4_1e5d_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="blank" ></th>        <th class="index_name level0" >Sex</th>        <th class="col_heading level0 col0" colspan=2>female</th>        <th class="col_heading level0 col2" colspan=2>male</th>        <th class="col_heading level0 col4" >All</th>    </tr>    <tr>        <th class="blank" ></th>        <th class="index_name level1" >Survived</th>        <th class="col_heading level1 col0" >0</th>        <th class="col_heading level1 col1" >1</th>        <th class="col_heading level1 col2" >0</th>        <th class="col_heading level1 col3" >1</th>        <th class="col_heading level1 col4" ></th>    </tr>    <tr>        <th class="index_name level0" >Embarked</th>        <th class="index_name level1" >Pclass</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_06102e62_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="blank" ></th>        <th class="index_name level0" >Sex</th>        <th class="col_heading level0 col0" colspan=2>female</th>        <th class="col_heading level0 col2" colspan=2>male</th>        <th class="col_heading level0 col4" >All</th>    </tr>    <tr>        <th class="blank" ></th>        <th class="index_name level1" >Survived</th>        <th class="col_heading level1 col0" >0</th>        <th class="col_heading level1 col1" >1</th>        <th class="col_heading level1 col2" >0</th>        <th class="col_heading level1 col3" >1</th>        <th class="col_heading level1 col4" ></th>    </tr>    <tr>        <th class="index_name level0" >Embarked</th>        <th class="index_name level1" >Pclass</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row0" class="row_heading level0 row0" rowspan=3>C</th>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row0" class="row_heading level1 row0" >1</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col0" class="data row0 col0" >1</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col1" class="data row0 col1" >42</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col2" class="data row0 col2" >25</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col3" class="data row0 col3" >17</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row0_col4" class="data row0 col4" >85</td>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" rowspan=3>C</th>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row0" class="row_heading level1 row0" >1</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >1</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col1" class="data row0 col1" >42</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col2" class="data row0 col2" >25</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col3" class="data row0 col3" >17</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row0_col4" class="data row0 col4" >85</td>
             </tr>
             <tr>
-                                <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row1" class="row_heading level1 row1" >2</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col0" class="data row1 col0" >0</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col1" class="data row1 col1" >7</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col2" class="data row1 col2" >8</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col3" class="data row1 col3" >2</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row1_col4" class="data row1 col4" >17</td>
+                                <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row1" class="row_heading level1 row1" >2</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >0</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col1" class="data row1 col1" >7</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col2" class="data row1 col2" >8</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col3" class="data row1 col3" >2</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row1_col4" class="data row1 col4" >17</td>
             </tr>
             <tr>
-                                <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row2" class="row_heading level1 row2" >3</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col0" class="data row2 col0" >8</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col1" class="data row2 col1" >15</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col2" class="data row2 col2" >33</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col3" class="data row2 col3" >10</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row2_col4" class="data row2 col4" >66</td>
+                                <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row2" class="row_heading level1 row2" >3</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >8</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col1" class="data row2 col1" >15</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col2" class="data row2 col2" >33</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col3" class="data row2 col3" >10</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row2_col4" class="data row2 col4" >66</td>
             </tr>
             <tr>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row3" class="row_heading level0 row3" rowspan=3>Q</th>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row3" class="row_heading level1 row3" >1</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col0" class="data row3 col0" >0</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col1" class="data row3 col1" >1</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col2" class="data row3 col2" >1</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col3" class="data row3 col3" >0</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row3_col4" class="data row3 col4" >2</td>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level0_row3" class="row_heading level0 row3" rowspan=3>Q</th>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row3" class="row_heading level1 row3" >1</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >0</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col1" class="data row3 col1" >1</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col2" class="data row3 col2" >1</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col3" class="data row3 col3" >0</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row3_col4" class="data row3 col4" >2</td>
             </tr>
             <tr>
-                                <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row4" class="row_heading level1 row4" >2</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col0" class="data row4 col0" >0</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col1" class="data row4 col1" >2</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col2" class="data row4 col2" >1</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col3" class="data row4 col3" >0</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row4_col4" class="data row4 col4" >3</td>
+                                <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row4" class="row_heading level1 row4" >2</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col0" class="data row4 col0" >0</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col1" class="data row4 col1" >2</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col2" class="data row4 col2" >1</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col3" class="data row4 col3" >0</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row4_col4" class="data row4 col4" >3</td>
             </tr>
             <tr>
-                                <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row5" class="row_heading level1 row5" >3</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col0" class="data row5 col0" >9</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col1" class="data row5 col1" >24</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col2" class="data row5 col2" >36</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col3" class="data row5 col3" >3</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row5_col4" class="data row5 col4" >72</td>
+                                <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row5" class="row_heading level1 row5" >3</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col0" class="data row5 col0" >9</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col1" class="data row5 col1" >24</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col2" class="data row5 col2" >36</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col3" class="data row5 col3" >3</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row5_col4" class="data row5 col4" >72</td>
             </tr>
             <tr>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row6" class="row_heading level0 row6" rowspan=3>S</th>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row6" class="row_heading level1 row6" >1</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col0" class="data row6 col0" >2</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col1" class="data row6 col1" >46</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col2" class="data row6 col2" >51</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col3" class="data row6 col3" >28</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row6_col4" class="data row6 col4" >127</td>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level0_row6" class="row_heading level0 row6" rowspan=3>S</th>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row6" class="row_heading level1 row6" >1</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col0" class="data row6 col0" >2</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col1" class="data row6 col1" >46</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col2" class="data row6 col2" >51</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col3" class="data row6 col3" >28</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row6_col4" class="data row6 col4" >127</td>
             </tr>
             <tr>
-                                <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row7" class="row_heading level1 row7" >2</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col0" class="data row7 col0" >6</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col1" class="data row7 col1" >61</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col2" class="data row7 col2" >82</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col3" class="data row7 col3" >15</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row7_col4" class="data row7 col4" >164</td>
+                                <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row7" class="row_heading level1 row7" >2</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col0" class="data row7 col0" >6</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col1" class="data row7 col1" >61</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col2" class="data row7 col2" >82</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col3" class="data row7 col3" >15</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row7_col4" class="data row7 col4" >164</td>
             </tr>
             <tr>
-                                <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row8" class="row_heading level1 row8" >3</th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col0" class="data row8 col0" >55</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col1" class="data row8 col1" >33</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col2" class="data row8 col2" >231</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col3" class="data row8 col3" >34</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row8_col4" class="data row8 col4" >353</td>
+                                <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row8" class="row_heading level1 row8" >3</th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col0" class="data row8 col0" >55</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col1" class="data row8 col1" >33</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col2" class="data row8 col2" >231</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col3" class="data row8 col3" >34</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row8_col4" class="data row8 col4" >353</td>
             </tr>
             <tr>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level0_row9" class="row_heading level0 row9" >All</th>
-                        <th id="T_477571b4_1e5d_11eb_8945_0242ac1c0002level1_row9" class="row_heading level1 row9" ></th>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col0" class="data row9 col0" >81</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col1" class="data row9 col1" >231</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col2" class="data row9 col2" >468</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col3" class="data row9 col3" >109</td>
-                        <td id="T_477571b4_1e5d_11eb_8945_0242ac1c0002row9_col4" class="data row9 col4" >889</td>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level0_row9" class="row_heading level0 row9" >All</th>
+                        <th id="T_06102e62_1e99_11eb_94db_0242ac1c0002level1_row9" class="row_heading level1 row9" ></th>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col0" class="data row9 col0" >81</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col1" class="data row9 col1" >231</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col2" class="data row9 col2" >468</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col3" class="data row9 col3" >109</td>
+                        <td id="T_06102e62_1e99_11eb_94db_0242ac1c0002row9_col4" class="data row9 col4" >889</td>
             </tr>
     </tbody></table>
-
+</div>
 
 
 <ul>
@@ -1217,71 +1211,71 @@ Name: Age, dtype: float64</code></pre>
 
 <div style = overflow:scroll;>
 <style  type="text/css" >
-#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col1{
+#T_07600b84_1e99_11eb_94db_0242ac1c0002row0_col0,#T_07600b84_1e99_11eb_94db_0242ac1c0002row0_col1{
             background-color:  #008066;
             color:  #f1f1f1;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col0{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row1_col0{
             background-color:  #c4e266;
             color:  #000000;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col1{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row1_col1{
             background-color:  #77bb66;
             color:  #000000;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col0{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row2_col0,#T_07600b84_1e99_11eb_94db_0242ac1c0002row4_col0{
             background-color:  #f9fc66;
             color:  #000000;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col1{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row2_col1{
             background-color:  #f0f866;
             color:  #000000;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col1{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row3_col0,#T_07600b84_1e99_11eb_94db_0242ac1c0002row3_col1{
             background-color:  #fbfd66;
             color:  #000000;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col1{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row4_col1{
             background-color:  #fcfe66;
             color:  #000000;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col0,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col1,#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col1{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row5_col0,#T_07600b84_1e99_11eb_94db_0242ac1c0002row5_col1,#T_07600b84_1e99_11eb_94db_0242ac1c0002row6_col1{
             background-color:  #ffff66;
             color:  #000000;
-        }#T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col0{
+        }#T_07600b84_1e99_11eb_94db_0242ac1c0002row6_col0{
             background-color:  #fefe66;
             color:  #000000;
-        }</style><table id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Survived</th>        <th class="col_heading level0 col0" >0</th>        <th class="col_heading level0 col1" >1</th>    </tr>    <tr>        <th class="index_name level0" >SibSp</th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_07600b84_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Survived</th>        <th class="col_heading level0 col0" >0</th>        <th class="col_heading level0 col1" >1</th>    </tr>    <tr>        <th class="index_name level0" >SibSp</th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col0" class="data row0 col0" >398</td>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row0_col1" class="data row0 col1" >210</td>
+                        <th id="T_07600b84_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >398</td>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row0_col1" class="data row0 col1" >210</td>
             </tr>
             <tr>
-                        <th id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row1" class="row_heading level0 row1" >1</th>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col0" class="data row1 col0" >97</td>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row1_col1" class="data row1 col1" >112</td>
+                        <th id="T_07600b84_1e99_11eb_94db_0242ac1c0002level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >97</td>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row1_col1" class="data row1 col1" >112</td>
             </tr>
             <tr>
-                        <th id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row2" class="row_heading level0 row2" >2</th>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col0" class="data row2 col0" >15</td>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row2_col1" class="data row2 col1" >13</td>
+                        <th id="T_07600b84_1e99_11eb_94db_0242ac1c0002level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >15</td>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row2_col1" class="data row2 col1" >13</td>
             </tr>
             <tr>
-                        <th id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row3" class="row_heading level0 row3" >3</th>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col0" class="data row3 col0" >12</td>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row3_col1" class="data row3 col1" >4</td>
+                        <th id="T_07600b84_1e99_11eb_94db_0242ac1c0002level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >12</td>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row3_col1" class="data row3 col1" >4</td>
             </tr>
             <tr>
-                        <th id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row4" class="row_heading level0 row4" >4</th>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col0" class="data row4 col0" >15</td>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row4_col1" class="data row4 col1" >3</td>
+                        <th id="T_07600b84_1e99_11eb_94db_0242ac1c0002level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row4_col0" class="data row4 col0" >15</td>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row4_col1" class="data row4 col1" >3</td>
             </tr>
             <tr>
-                        <th id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row5" class="row_heading level0 row5" >5</th>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col0" class="data row5 col0" >5</td>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row5_col1" class="data row5 col1" >0</td>
+                        <th id="T_07600b84_1e99_11eb_94db_0242ac1c0002level0_row5" class="row_heading level0 row5" >5</th>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row5_col0" class="data row5 col0" >5</td>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row5_col1" class="data row5 col1" >0</td>
             </tr>
             <tr>
-                        <th id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002level0_row6" class="row_heading level0 row6" >8</th>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col0" class="data row6 col0" >7</td>
-                        <td id="T_234bfb9c_1e61_11eb_8945_0242ac1c0002row6_col1" class="data row6 col1" >0</td>
+                        <th id="T_07600b84_1e99_11eb_94db_0242ac1c0002level0_row6" class="row_heading level0 row6" >8</th>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row6_col0" class="data row6 col0" >7</td>
+                        <td id="T_07600b84_1e99_11eb_94db_0242ac1c0002row6_col1" class="data row6 col1" >0</td>
             </tr>
     </tbody></table>
-
+</div>
 
 
 
@@ -1295,84 +1289,84 @@ Name: Age, dtype: float64</code></pre>
 
 <div style = overflow:scroll;>
 <style  type="text/css" >
-#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col1,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col2{
+#T_07e66968_1e99_11eb_94db_0242ac1c0002row0_col0,#T_07e66968_1e99_11eb_94db_0242ac1c0002row0_col1,#T_07e66968_1e99_11eb_94db_0242ac1c0002row0_col2{
             background-color:  #008066;
             color:  #f1f1f1;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col0{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row1_col0{
             background-color:  #7bbd66;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col1{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row1_col1{
             background-color:  #8ac466;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col2{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row1_col2{
             background-color:  #c6e266;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col2{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row2_col0,#T_07e66968_1e99_11eb_94db_0242ac1c0002row4_col2{
             background-color:  #f6fa66;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col1{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row2_col1{
             background-color:  #eef666;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col2{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row2_col2{
             background-color:  #f8fc66;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col2{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row3_col0,#T_07e66968_1e99_11eb_94db_0242ac1c0002row3_col2{
             background-color:  #fafc66;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col1{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row3_col1{
             background-color:  #fdfe66;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col1,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col1,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col2,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col0,#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col1{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row4_col0,#T_07e66968_1e99_11eb_94db_0242ac1c0002row4_col1,#T_07e66968_1e99_11eb_94db_0242ac1c0002row5_col0,#T_07e66968_1e99_11eb_94db_0242ac1c0002row5_col1,#T_07e66968_1e99_11eb_94db_0242ac1c0002row5_col2,#T_07e66968_1e99_11eb_94db_0242ac1c0002row6_col0,#T_07e66968_1e99_11eb_94db_0242ac1c0002row6_col1{
             background-color:  #ffff66;
             color:  #000000;
-        }#T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col2{
+        }#T_07e66968_1e99_11eb_94db_0242ac1c0002row6_col2{
             background-color:  #fefe66;
             color:  #000000;
-        }</style><table id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>    </tr>    <tr>        <th class="index_name level0" >SibSp</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_07e66968_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>    </tr>    <tr>        <th class="index_name level0" >SibSp</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col0" class="data row0 col0" >137</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col1" class="data row0 col1" >120</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row0_col2" class="data row0 col2" >351</td>
+                        <th id="T_07e66968_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >137</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row0_col1" class="data row0 col1" >120</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row0_col2" class="data row0 col2" >351</td>
             </tr>
             <tr>
-                        <th id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row1" class="row_heading level0 row1" >1</th>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col0" class="data row1 col0" >71</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col1" class="data row1 col1" >55</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row1_col2" class="data row1 col2" >83</td>
+                        <th id="T_07e66968_1e99_11eb_94db_0242ac1c0002level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >71</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row1_col1" class="data row1 col1" >55</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row1_col2" class="data row1 col2" >83</td>
             </tr>
             <tr>
-                        <th id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row2" class="row_heading level0 row2" >2</th>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col0" class="data row2 col0" >5</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col1" class="data row2 col1" >8</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row2_col2" class="data row2 col2" >15</td>
+                        <th id="T_07e66968_1e99_11eb_94db_0242ac1c0002level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >5</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row2_col1" class="data row2 col1" >8</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row2_col2" class="data row2 col2" >15</td>
             </tr>
             <tr>
-                        <th id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row3" class="row_heading level0 row3" >3</th>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col0" class="data row3 col0" >3</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col1" class="data row3 col1" >1</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row3_col2" class="data row3 col2" >12</td>
+                        <th id="T_07e66968_1e99_11eb_94db_0242ac1c0002level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >3</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row3_col1" class="data row3 col1" >1</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row3_col2" class="data row3 col2" >12</td>
             </tr>
             <tr>
-                        <th id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row4" class="row_heading level0 row4" >4</th>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col0" class="data row4 col0" >0</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col1" class="data row4 col1" >0</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row4_col2" class="data row4 col2" >18</td>
+                        <th id="T_07e66968_1e99_11eb_94db_0242ac1c0002level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row4_col0" class="data row4 col0" >0</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row4_col1" class="data row4 col1" >0</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row4_col2" class="data row4 col2" >18</td>
             </tr>
             <tr>
-                        <th id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row5" class="row_heading level0 row5" >5</th>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col0" class="data row5 col0" >0</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col1" class="data row5 col1" >0</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row5_col2" class="data row5 col2" >5</td>
+                        <th id="T_07e66968_1e99_11eb_94db_0242ac1c0002level0_row5" class="row_heading level0 row5" >5</th>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row5_col0" class="data row5 col0" >0</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row5_col1" class="data row5 col1" >0</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row5_col2" class="data row5 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002level0_row6" class="row_heading level0 row6" >8</th>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col0" class="data row6 col0" >0</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col1" class="data row6 col1" >0</td>
-                        <td id="T_4bb7393e_1e61_11eb_8945_0242ac1c0002row6_col2" class="data row6 col2" >7</td>
+                        <th id="T_07e66968_1e99_11eb_94db_0242ac1c0002level0_row6" class="row_heading level0 row6" >8</th>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row6_col0" class="data row6 col0" >0</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row6_col1" class="data row6 col1" >0</td>
+                        <td id="T_07e66968_1e99_11eb_94db_0242ac1c0002row6_col2" class="data row6 col2" >7</td>
             </tr>
     </tbody></table>
-
+</div>
 
 
 <ul>
@@ -1386,85 +1380,371 @@ Name: Age, dtype: float64</code></pre>
 
 <div style = overflow:scroll;>
 <style  type="text/css" >
-#T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col2{
+#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row0_col0,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row0_col1,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row0_col2{
             background-color:  #008066;
             color:  #f1f1f1;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col0{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row1_col0{
             background-color:  #cfe766;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col1{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row1_col1{
             background-color:  #c2e066;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col2{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row1_col2{
             background-color:  #dbed66;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col0{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row2_col0{
             background-color:  #dfef66;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col1{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row2_col1{
             background-color:  #e1f066;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col2{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row2_col2{
             background-color:  #e3f166;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col1,#T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col2{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row3_col0,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row4_col1,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row5_col0,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row5_col1,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row6_col0,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row6_col1,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row6_col2{
             background-color:  #ffff66;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col1{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row3_col1{
             background-color:  #fcfe66;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col2,#T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col0,#T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col2{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row3_col2,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row4_col0,#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row4_col2{
             background-color:  #fefe66;
             color:  #000000;
-        }#T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col2{
+        }#T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row5_col2{
             background-color:  #fdfe66;
             color:  #000000;
-        }</style><table id="T_648da07c_1e63_11eb_8945_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>    </tr>    <tr>        <th class="index_name level0" >Parch</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="index_name level0" >Pclass</th>        <th class="col_heading level0 col0" >1</th>        <th class="col_heading level0 col1" >2</th>        <th class="col_heading level0 col2" >3</th>    </tr>    <tr>        <th class="index_name level0" >Parch</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col0" class="data row0 col0" >163</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col1" class="data row0 col1" >134</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row0_col2" class="data row0 col2" >381</td>
+                        <th id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >163</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row0_col1" class="data row0 col1" >134</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row0_col2" class="data row0 col2" >381</td>
             </tr>
             <tr>
-                        <th id="T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row1" class="row_heading level0 row1" >1</th>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col0" class="data row1 col0" >31</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col1" class="data row1 col1" >32</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row1_col2" class="data row1 col2" >55</td>
+                        <th id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >31</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row1_col1" class="data row1 col1" >32</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row1_col2" class="data row1 col2" >55</td>
             </tr>
             <tr>
-                        <th id="T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row2" class="row_heading level0 row2" >2</th>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col0" class="data row2 col0" >21</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col1" class="data row2 col1" >16</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row2_col2" class="data row2 col2" >43</td>
+                        <th id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >21</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row2_col1" class="data row2 col1" >16</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row2_col2" class="data row2 col2" >43</td>
             </tr>
             <tr>
-                        <th id="T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row3" class="row_heading level0 row3" >3</th>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col0" class="data row3 col0" >0</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col1" class="data row3 col1" >2</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row3_col2" class="data row3 col2" >3</td>
+                        <th id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >0</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row3_col1" class="data row3 col1" >2</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row3_col2" class="data row3 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row4" class="row_heading level0 row4" >4</th>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col0" class="data row4 col0" >1</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col1" class="data row4 col1" >0</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row4_col2" class="data row4 col2" >3</td>
+                        <th id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row4_col0" class="data row4 col0" >1</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row4_col1" class="data row4 col1" >0</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row4_col2" class="data row4 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row5" class="row_heading level0 row5" >5</th>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col0" class="data row5 col0" >0</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col1" class="data row5 col1" >0</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row5_col2" class="data row5 col2" >5</td>
+                        <th id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002level0_row5" class="row_heading level0 row5" >5</th>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row5_col0" class="data row5 col0" >0</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row5_col1" class="data row5 col1" >0</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row5_col2" class="data row5 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_648da07c_1e63_11eb_8945_0242ac1c0002level0_row6" class="row_heading level0 row6" >6</th>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col0" class="data row6 col0" >0</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col1" class="data row6 col1" >0</td>
-                        <td id="T_648da07c_1e63_11eb_8945_0242ac1c0002row6_col2" class="data row6 col2" >1</td>
+                        <th id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002level0_row6" class="row_heading level0 row6" >6</th>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row6_col0" class="data row6 col0" >0</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row6_col1" class="data row6 col1" >0</td>
+                        <td id="T_07ec6f0c_1e99_11eb_94db_0242ac1c0002row6_col2" class="data row6 col2" >1</td>
             </tr>
     </tbody></table>
+</div>
 
 
+<p>위 crosstab은 Pclass3에 다인 가족이 있음을 보여준다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">20</span>,<span class="number">8</span>))</span><br><span class="line">sns.barplot(<span class="string">&#x27;Parch&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Parch vs Survived&#x27;</span>)</span><br><span class="line">sns.factorplot(<span class="string">&#x27;Parch&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Parch vs Survived&#x27;</span>)</span><br><span class="line">plt.close(<span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_88_0.png" alt="png"></p>
+<ul>
+<li>부모를 동반한 승객들의 생존률이 높은 것을 확인할 수 있다.</li>
+<li>하지만 동반 승객 숫자가 늘어날수록 생존률이 줄어든다.</li>
+<li>1-3명의 동반 승객이 있는 경우 생존률이 높으며</li>
+<li>혼자이거나 4명 이상인 경우 생존률이 낮다.</li>
+</ul>
+<h3 id="Fare–-gt-Continous-Feature"><a href="#Fare–-gt-Continous-Feature" class="headerlink" title="Fare–&gt; Continous Feature"></a>Fare–&gt; Continous Feature</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;Highest Fare was:&#x27;</span>,data[<span class="string">&#x27;Fare&#x27;</span>].<span class="built_in">max</span>())</span><br><span class="line">print(<span class="string">&#x27;Lowest Fare was:&#x27;</span>,data[<span class="string">&#x27;Fare&#x27;</span>].<span class="built_in">min</span>())</span><br><span class="line">print(<span class="string">&#x27;Average Fare was:&#x27;</span>,data[<span class="string">&#x27;Fare&#x27;</span>].mean())</span><br></pre></td></tr></table></figure>
+
+<pre><code>Highest Fare was: 512.3292
+Lowest Fare was: 0.0
+Average Fare was: 32.2042079685746</code></pre>
+<p>요금을 보면 공짜로 탄 사람이 있는 것을 확인할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">3</span>,figsize=(<span class="number">20</span>,<span class="number">8</span>))</span><br><span class="line">sns.distplot(data[data[<span class="string">&#x27;Pclass&#x27;</span>]==<span class="number">1</span>].Fare,ax=ax[<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Fares in Pclass 1&#x27;</span>)</span><br><span class="line">sns.distplot(data[data[<span class="string">&#x27;Pclass&#x27;</span>]==<span class="number">2</span>].Fare,ax=ax[<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Fares in Pclass 2&#x27;</span>)</span><br><span class="line">sns.distplot(data[data[<span class="string">&#x27;Pclass&#x27;</span>]==<span class="number">3</span>].Fare,ax=ax[<span class="number">2</span>])</span><br><span class="line">ax[<span class="number">2</span>].set_title(<span class="string">&#x27;Fares in Pclass 3&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_93_0.png" alt="png"></p>
+<ul>
+<li>Pclass1의 fare에서 분포가 크며, 점차 감소한다.</li>
+<li>연속된 값이기 때문에 bining을 사용하여 값을 변환할 수 있다.</li>
+</ul>
+<h3 id="Observations-in-a-Nutshell-for-all-features"><a href="#Observations-in-a-Nutshell-for-all-features" class="headerlink" title="Observations in a Nutshell for all features"></a>Observations in a Nutshell for all features</h3><ul>
+<li>Sex: 남성에 비해 여성의 생존률이 높다.</li>
+<li>Pclass: Pclass1의 생존률이 높으며, 반면에, Pclass3의 생존율은 매우 낮다. 여성의 경우 Pclass1에서 생존률은 거의 1이며 Pclass2에서의 생존률 또한 높다.</li>
+<li>Age: 5~10세 미만의 어린이들은 생존률이 높다. 15세에서 35세 사이의 승객들이 많이 죽었다.</li>
+<li>Embarked: Pclass1 승객의 대다수가 S에서 승선했음에도 불구하고, C에서 생존률이 더 높다. Q에서 승선한 승객들은 대부분 Pclass3 등급의 승객이다.</li>
+<li>Parch+SibSp: 형제자매 혹은 배우자가 있는 1-2명, 부모님이 같이 있는 1-3명에서의 생존률이 혼자 이거나, 대가족이 있는 사람의 생존률보다 더 높다.</li>
+</ul>
+<h3 id="Correlation-Between-The-Features"><a href="#Correlation-Between-The-Features" class="headerlink" title="Correlation Between The Features"></a>Correlation Between The Features</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sns.heatmap(data.corr(),annot=<span class="literal">True</span>,cmap=<span class="string">&#x27;RdYlGn&#x27;</span>,linewidths=<span class="number">0.2</span>) <span class="comment">#data.corr()--&gt;correlation matrix</span></span><br><span class="line">fig=plt.gcf()</span><br><span class="line">fig.set_size_inches(<span class="number">10</span>,<span class="number">8</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_97_0.png" alt="png"></p>
+<h2 id="3-4-Part2-Feature-Engineering-and-Data-Cleaning"><a href="#3-4-Part2-Feature-Engineering-and-Data-Cleaning" class="headerlink" title="3.4. Part2: Feature Engineering and Data Cleaning"></a>3.4. Part2: Feature Engineering and Data Cleaning</h2><ul>
+<li>불필요한 feature(중복자료) 제거</li>
+</ul>
+<h3 id="Age-band"><a href="#Age-band" class="headerlink" title="Age_band"></a>Age_band</h3><ul>
+<li>Age Feature의 문제점<ul>
+<li>Age는 연속적인 값이고, 머신러닝에 있어 연속적인 값에 관한 문제가 있다.</li>
+<li>Bining과 Nomalization을 통해 연속형 값을 범주형 값으로 변환해 줄 필요가 있다.</li>
+<li>binning을 사용하여 다양한 연령대를 하나의 bin으로 그룹화하거나 단일 값을 할당할 것이다.</li>
+<li>0-80의 범위를 5개의 그룹으로 나눌 것이다.(16 크기의 5개 그룹)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Age_band&#x27;</span>]=<span class="number">0</span></span><br><span class="line">data.loc[data[<span class="string">&#x27;Age&#x27;</span>]&lt;=<span class="number">16</span>,<span class="string">&#x27;Age_band&#x27;</span>]=<span class="number">0</span></span><br><span class="line">data.loc[(data[<span class="string">&#x27;Age&#x27;</span>]&gt;<span class="number">16</span>)&amp;(data[<span class="string">&#x27;Age&#x27;</span>]&lt;=<span class="number">32</span>),<span class="string">&#x27;Age_band&#x27;</span>]=<span class="number">1</span></span><br><span class="line">data.loc[(data[<span class="string">&#x27;Age&#x27;</span>]&gt;<span class="number">32</span>)&amp;(data[<span class="string">&#x27;Age&#x27;</span>]&lt;=<span class="number">48</span>),<span class="string">&#x27;Age_band&#x27;</span>]=<span class="number">2</span></span><br><span class="line">data.loc[(data[<span class="string">&#x27;Age&#x27;</span>]&gt;<span class="number">48</span>)&amp;(data[<span class="string">&#x27;Age&#x27;</span>]&lt;=<span class="number">64</span>),<span class="string">&#x27;Age_band&#x27;</span>]=<span class="number">3</span></span><br><span class="line">data.loc[data[<span class="string">&#x27;Age&#x27;</span>]&gt;<span class="number">64</span>,<span class="string">&#x27;Age_band&#x27;</span>]=<span class="number">4</span></span><br><span class="line">data.head(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div style = overflow:scroll;>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Initial</th>
+      <th>Age_band</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>Mr</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+      <td>Mrs</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Age_band&#x27;</span>].value_counts().to_frame().style.background_gradient(cmap=<span class="string">&#x27;summer&#x27;</span>)<span class="comment">#checking the number of passenegers in each band</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div style = overflow:scroll;>
+<style  type="text/css" >
+#T_09298e9a_1e99_11eb_94db_0242ac1c0002row0_col0{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_09298e9a_1e99_11eb_94db_0242ac1c0002row1_col0{
+            background-color:  #d8ec66;
+            color:  #000000;
+        }#T_09298e9a_1e99_11eb_94db_0242ac1c0002row2_col0{
+            background-color:  #40a066;
+            color:  #000000;
+        }#T_09298e9a_1e99_11eb_94db_0242ac1c0002row3_col0{
+            background-color:  #289366;
+            color:  #000000;
+        }#T_09298e9a_1e99_11eb_94db_0242ac1c0002row4_col0{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }</style><table id="T_09298e9a_1e99_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Age_band</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_09298e9a_1e99_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" >1</th>
+                        <td id="T_09298e9a_1e99_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >382</td>
+            </tr>
+            <tr>
+                        <th id="T_09298e9a_1e99_11eb_94db_0242ac1c0002level0_row1" class="row_heading level0 row1" >2</th>
+                        <td id="T_09298e9a_1e99_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >325</td>
+            </tr>
+            <tr>
+                        <th id="T_09298e9a_1e99_11eb_94db_0242ac1c0002level0_row2" class="row_heading level0 row2" >0</th>
+                        <td id="T_09298e9a_1e99_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >104</td>
+            </tr>
+            <tr>
+                        <th id="T_09298e9a_1e99_11eb_94db_0242ac1c0002level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_09298e9a_1e99_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >69</td>
+            </tr>
+            <tr>
+                        <th id="T_09298e9a_1e99_11eb_94db_0242ac1c0002level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_09298e9a_1e99_11eb_94db_0242ac1c0002row4_col0" class="data row4 col0" >11</td>
+            </tr>
+    </tbody></table>
+</div>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.factorplot(<span class="string">&#x27;Age_band&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,col=<span class="string">&#x27;Pclass&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_102_0.png" alt="png"></p>
+<ul>
+<li>Pclass에 상관없이 나이가 많을수록 생존률이 떨어진다.</li>
+</ul>
+<h3 id="Family-Size-and-Alone"><a href="#Family-Size-and-Alone" class="headerlink" title="Family_Size and Alone"></a>Family_Size and Alone</h3><ul>
+<li> Parch 와 SibSp Feature의 합을 통해 “Family_size”와 “Alone”이라는 Feature를 생성할 것이다.</li>
+<li>이는 승객의 가족 규모와 생존률이 상관관계가 있는지 확인하기 위함이다.</li>
+<li>Alone은 승객이 혼자인지 아닌지를 나타낸다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Family_Size&#x27;</span>]=<span class="number">0</span></span><br><span class="line">data[<span class="string">&#x27;Family_Size&#x27;</span>]=data[<span class="string">&#x27;Parch&#x27;</span>]+data[<span class="string">&#x27;SibSp&#x27;</span>]<span class="comment">#family size</span></span><br><span class="line">data[<span class="string">&#x27;Alone&#x27;</span>]=<span class="number">0</span></span><br><span class="line">data.loc[data.Family_Size==<span class="number">0</span>,<span class="string">&#x27;Alone&#x27;</span>]=<span class="number">1</span><span class="comment">#Alone</span></span><br><span class="line"></span><br><span class="line">f,ax=plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">18</span>,<span class="number">6</span>))</span><br><span class="line">sns.factorplot(<span class="string">&#x27;Family_Size&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;Family_Size vs Survived&#x27;</span>)</span><br><span class="line">sns.factorplot(<span class="string">&#x27;Alone&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,ax=ax[<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;Alone vs Survived&#x27;</span>)</span><br><span class="line">plt.close(<span class="number">2</span>)</span><br><span class="line">plt.close(<span class="number">3</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_105_0.png" alt="png"></p>
+<ul>
+<li>Family_Size=0은 승객이 혼자인 것을 의미한다.</li>
+<li>혼자 승선한 승객의 경우 생존률이 매우 낮다.</li>
+<li>Family size &gt; 4인 경우 또한 생존률이 감소한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.factorplot(<span class="string">&#x27;Alone&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,hue=<span class="string">&#x27;Sex&#x27;</span>,col=<span class="string">&#x27;Pclass&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_107_0.png" alt="png"></p>
+<ul>
+<li>Sex와 Pclass와 무관하게 혼자인 승객의 생존률은 좋지 않다.</li>
+<li>예외적으로 Pclass3의 여성의 경우, 혼자인 경우가 가족이 있는 경우보다 생존률이 높다. </li>
+</ul>
+<h3 id="Fare-Range"><a href="#Fare-Range" class="headerlink" title="Fare_Range"></a>Fare_Range</h3><ul>
+<li>Fare 또한 연속형 값을 갖기 때문에 서수 값으로 변환해 주어야 한다.</li>
+<li>pandas.qcut를 사용하여 변환할 것이다.</li>
+<li>qcut은 우리가 통과시킨 bin의 개수에 따라 분류할 것이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Fare_Range&#x27;</span>]=pd.qcut(data[<span class="string">&#x27;Fare&#x27;</span>],<span class="number">4</span>)</span><br><span class="line">data.groupby([<span class="string">&#x27;Fare_Range&#x27;</span>])[<span class="string">&#x27;Survived&#x27;</span>].mean().to_frame().style.background_gradient(cmap=<span class="string">&#x27;summer_r&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<div style = overflow:scroll;>
+<style  type="text/css" >
+#T_8982a520_1e9b_11eb_94db_0242ac1c0002row0_col0{
+            background-color:  #ffff66;
+            color:  #000000;
+        }#T_8982a520_1e9b_11eb_94db_0242ac1c0002row1_col0{
+            background-color:  #b9dc66;
+            color:  #000000;
+        }#T_8982a520_1e9b_11eb_94db_0242ac1c0002row2_col0{
+            background-color:  #54aa66;
+            color:  #000000;
+        }#T_8982a520_1e9b_11eb_94db_0242ac1c0002row3_col0{
+            background-color:  #008066;
+            color:  #f1f1f1;
+        }</style><table id="T_8982a520_1e9b_11eb_94db_0242ac1c0002" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Survived</th>    </tr>    <tr>        <th class="index_name level0" >Fare_Range</th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_8982a520_1e9b_11eb_94db_0242ac1c0002level0_row0" class="row_heading level0 row0" >(-0.001, 7.91]</th>
+                        <td id="T_8982a520_1e9b_11eb_94db_0242ac1c0002row0_col0" class="data row0 col0" >0.197309</td>
+            </tr>
+            <tr>
+                        <th id="T_8982a520_1e9b_11eb_94db_0242ac1c0002level0_row1" class="row_heading level0 row1" >(7.91, 14.454]</th>
+                        <td id="T_8982a520_1e9b_11eb_94db_0242ac1c0002row1_col0" class="data row1 col0" >0.303571</td>
+            </tr>
+            <tr>
+                        <th id="T_8982a520_1e9b_11eb_94db_0242ac1c0002level0_row2" class="row_heading level0 row2" >(14.454, 31.0]</th>
+                        <td id="T_8982a520_1e9b_11eb_94db_0242ac1c0002row2_col0" class="data row2 col0" >0.454955</td>
+            </tr>
+            <tr>
+                        <th id="T_8982a520_1e9b_11eb_94db_0242ac1c0002level0_row3" class="row_heading level0 row3" >(31.0, 512.329]</th>
+                        <td id="T_8982a520_1e9b_11eb_94db_0242ac1c0002row3_col0" class="data row3 col0" >0.581081</td>
+            </tr>
+    </tbody></table>
+</div>
+
+
+<ul>
+<li>Fare_Range가 증가할수록 생존률 또한 증가하는 것을 확인할 수 있다.</li>
+<li>Fare_Range 값을 그대로 사용할 수 없으므로, singleton값으로 변환해 주어야 한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Fare_cat&#x27;</span>]=<span class="number">0</span></span><br><span class="line">data.loc[data[<span class="string">&#x27;Fare&#x27;</span>]&lt;=<span class="number">7.91</span>,<span class="string">&#x27;Fare_cat&#x27;</span>]=<span class="number">0</span></span><br><span class="line">data.loc[(data[<span class="string">&#x27;Fare&#x27;</span>]&gt;<span class="number">7.91</span>)&amp;(data[<span class="string">&#x27;Fare&#x27;</span>]&lt;=<span class="number">14.454</span>),<span class="string">&#x27;Fare_cat&#x27;</span>]=<span class="number">1</span></span><br><span class="line">data.loc[(data[<span class="string">&#x27;Fare&#x27;</span>]&gt;<span class="number">14.454</span>)&amp;(data[<span class="string">&#x27;Fare&#x27;</span>]&lt;=<span class="number">31</span>),<span class="string">&#x27;Fare_cat&#x27;</span>]=<span class="number">2</span></span><br><span class="line">data.loc[(data[<span class="string">&#x27;Fare&#x27;</span>]&gt;<span class="number">31</span>)&amp;(data[<span class="string">&#x27;Fare&#x27;</span>]&lt;=<span class="number">513</span>),<span class="string">&#x27;Fare_cat&#x27;</span>]=<span class="number">3</span></span><br><span class="line"></span><br><span class="line">sns.factorplot(<span class="string">&#x27;Fare_cat&#x27;</span>,<span class="string">&#x27;Survived&#x27;</span>,data=data,hue=<span class="string">&#x27;Sex&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_113_0.png" alt="png"></p>
+<ul>
+<li>Fare_cat이 증가할수록 생존률이 증가한다.</li>
+</ul>
+<h3 id="Converting-String-Values-into-Numeric"><a href="#Converting-String-Values-into-Numeric" class="headerlink" title="Converting String Values into Numeric"></a>Converting String Values into Numeric</h3><ul>
+<li>머신러닝에 문자열 데이터를 사용할 수 없으므로, Sex, Embarked 등의 데이터를 숫자형 데이터로 변환해야 한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">&#x27;Sex&#x27;</span>].replace([<span class="string">&#x27;male&#x27;</span>,<span class="string">&#x27;female&#x27;</span>],[<span class="number">0</span>,<span class="number">1</span>],inplace=<span class="literal">True</span>)</span><br><span class="line">data[<span class="string">&#x27;Embarked&#x27;</span>].replace([<span class="string">&#x27;S&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;Q&#x27;</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>],inplace=<span class="literal">True</span>)</span><br><span class="line">data[<span class="string">&#x27;Initial&#x27;</span>].replace([<span class="string">&#x27;Mr&#x27;</span>,<span class="string">&#x27;Mrs&#x27;</span>,<span class="string">&#x27;Miss&#x27;</span>,<span class="string">&#x27;Master&#x27;</span>,<span class="string">&#x27;Other&#x27;</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>불필요한 Feature 삭제<ul>
+<li>Name–&gt; 범주형 값으로 변환할 수 없으므로 삭제한다.</li>
+<li>Age–&gt; Age_band feature를 사용할 것이므로 삭제한다.</li>
+<li>Ticket–&gt; It is any random string that cannot be categorised.</li>
+<li>Fare–&gt; Fare_cat을 사용할 것이므로 삭제한다. </li>
+<li>Cabin–&gt; 결측값이 많고, 대부분의 승객들이 복수의 객실을 가지고 있으므로 필요없는 데이터이다.</li>
+<li>Fare_Range–&gt; Fare_cat을 사용할 것이므로 삭제한다.</li>
+<li>PassengerId–&gt; 분류할 수 없다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data.drop([<span class="string">&#x27;Name&#x27;</span>,<span class="string">&#x27;Age&#x27;</span>,<span class="string">&#x27;Ticket&#x27;</span>,<span class="string">&#x27;Fare&#x27;</span>,<span class="string">&#x27;Cabin&#x27;</span>,<span class="string">&#x27;Fare_Range&#x27;</span>,<span class="string">&#x27;PassengerId&#x27;</span>],axis=<span class="number">1</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">sns.heatmap(data.corr(),annot=<span class="literal">True</span>,cmap=<span class="string">&#x27;RdYlGn&#x27;</span>,linewidths=<span class="number">0.2</span>,annot_kws=&#123;<span class="string">&#x27;size&#x27;</span>:<span class="number">20</span>&#125;)</span><br><span class="line">fig=plt.gcf()</span><br><span class="line">fig.set_size_inches(<span class="number">18</span>,<span class="number">15</span>)</span><br><span class="line">plt.xticks(fontsize=<span class="number">14</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">14</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/Titanic_Practice_in_Colab_with_Kaggle/output_118_0.png" alt="png"></p>
+<ul>
+<li>우리는 Feature간의 연관성을 확인할 수 있다.</li>
+<li>SibSp and Family_Size와 Parch and Family_Size처럼 양의 값이거나 Alone과 Family_Size와 같이 음의 값이다.</li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -1548,7 +1828,7 @@ Name: Age, dtype: float64</code></pre>
         "genre": "",
         "datePublished": "2020-11-04",
         "dateCreated": "2020-11-04",
-        "dateModified": "2020-11-04",
+        "dateModified": "2020-11-05",
         "url": "https://kdmid.github.io/2020/11/04/Titanic_Practice_in_Colab_with_Kaggle/",
         "description": "I. Kaggle 데이터 사용을 위한 사전 세팅1.1. Kaggle API 설치
 Google Colab에서 Kaggle API를 불러오려면 다음 소스코드를 실행한다. 
@@ -1556,7 +1836,7 @@ Google Colab에서 Kaggle API를 불러오려면 다음 소스코드를 실행�
 1!pip install kaggle
 
 Requirement already satisfied: kaggle in /usr/local/lib/python3.6/dist-packages (1.",
-        "wordCount": 16818
+        "wordCount": 19217
     }
 </script>
 
